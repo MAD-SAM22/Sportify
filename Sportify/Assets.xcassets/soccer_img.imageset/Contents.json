@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "soccer-y8vz4oxbfbc5t6lr.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "soccer-y8vz4oxbfbc5t6lr@2x.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "soccer-y8vz4oxbfbc5t6lr@3x.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
