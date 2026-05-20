@@ -26,7 +26,7 @@ class ViewController: UIViewController , UICollectionViewDataSource, UICollectio
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        collectionView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.minimumInteritemSpacing = 12
@@ -71,4 +71,21 @@ class ViewController: UIViewController , UICollectionViewDataSource, UICollectio
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
             return 16 // Vertical space between rows
         }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { //cell pressed
+        let selectedSport = sportsData[indexPath.row]
+        print("cell pressed ")
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let leaguesVC = storyboard.instantiateViewController(withIdentifier: "LeaguesViewController") as? LeaguesViewController {
+            
+            print("selected league is\(selectedSport)")
+            leaguesVC.selectedSport = selectedSport
+            
+            self.navigationController?.pushViewController(leaguesVC, animated: true)
+        }
+        
+        
+    }
+    
     }

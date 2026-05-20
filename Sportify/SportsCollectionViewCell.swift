@@ -34,6 +34,7 @@ class SportsCollectionViewCell: UICollectionViewCell {
         sportImageView.layer.cornerRadius = 14
         sportImageView.layer.masksToBounds = true
         sportImageView.contentMode = .scaleAspectFill
+//        sportImageView.clipsToBounds = true
 
         // Style the label to sit as an overlay at the bottom
         sportLabel.textColor = .white
