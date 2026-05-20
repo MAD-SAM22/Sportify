@@ -41,7 +41,7 @@ class SportsCollectionViewCell: UICollectionViewCell {
         sportLabel.textAlignment = .center
 
         // Dark gradient-like background behind the label
-        sportLabel.backgroundColor = UIColor.black.withAlphaComponent(0.45)
+//        sportLabel.backgroundColor = UIColor.black.withAlphaComponent(0.45)
         sportLabel.layer.cornerRadius = 0  // flush with cell bottom
         sportLabel.clipsToBounds = true
     }
