@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "CEBL_playerHeadshot_placeholder-640w.png-removebg-preview.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "CEBL_playerHeadshot_placeholder-640w.png-removebg-preview@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "CEBL_playerHeadshot_placeholder-640w.png-removebg-preview@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
