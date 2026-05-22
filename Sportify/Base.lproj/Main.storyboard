@@ -17,12 +17,6 @@
                     <view key="view" contentMode="scaleToFill" id="khY-aL-9Qb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSW-2e-fWi">
-                                <rect key="frame" x="76" y="308" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gMr-As-euf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -35,7 +29,7 @@
         <!--Sports-->
         <scene sceneID="B5u-Hx-r4H">
             <objects>
-                <viewController id="aOX-vR-dn0" customClass="ViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SportsViewControlller" id="aOX-vR-dn0" customClass="SportsViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nl7-hy-nY2">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="680"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +95,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sports" id="Dan-7G-yZI"/>
                     <connections>
-                        <outlet property="collectionView" destination="yfA-c7-faJ" id="I67-qV-BMN"/>
+                        <outlet property="collectionView" destination="yfA-c7-faJ" id="mQo-jo-5hV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1H-y1-Ruw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

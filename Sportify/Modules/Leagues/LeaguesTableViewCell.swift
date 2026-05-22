@@ -7,10 +7,6 @@
 
 import UIKit
 
-struct League{
-var    name : String
-var    image: UIImage
-}
 class LeaguesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var leagueImage: UIImageView!

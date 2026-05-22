@@ -7,10 +7,6 @@
 
 import UIKit
 
-struct SportsHome {
-    let name: String
-    let imageName: String
-}
 
 class SportsCollectionViewCell: UICollectionViewCell {
 
