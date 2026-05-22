@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct League{
-var    name : String
-var    image: UIImage
+struct League {
+    let name: String
+    let badgeImageName: String
 }
