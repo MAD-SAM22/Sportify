@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D4A21FC32FC071C200998E91 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D4A21FC22FC071C200998E91 /* SDWebImage */; };
+		D4A21FC52FC071C200998E91 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D4A21FC42FC071C200998E91 /* SDWebImageMapKit */; };
+		D4A21FC82FC071D300998E91 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = D4A21FC72FC071D300998E91 /* Reachability */; };
+		D4A21FCB2FC071E500998E91 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = D4A21FCA2FC071E500998E91 /* SkeletonView */; };
+		D4A21FD32FC0728B00998E91 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D4A21FD22FC0728B00998E91 /* Kingfisher */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		6F301BCB2FBCBE4D004727A8 /* Sportify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sportify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +44,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A21FD32FC0728B00998E91 /* Kingfisher in Frameworks */,
+				D4A21FCB2FC071E500998E91 /* SkeletonView in Frameworks */,
+				D4A21FC52FC071C200998E91 /* SDWebImageMapKit in Frameworks */,
+				D4A21FC82FC071D300998E91 /* Reachability in Frameworks */,
+				D4A21FC32FC071C200998E91 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +91,11 @@
 			);
 			name = Sportify;
 			packageProductDependencies = (
+				D4A21FC22FC071C200998E91 /* SDWebImage */,
+				D4A21FC42FC071C200998E91 /* SDWebImageMapKit */,
+				D4A21FC72FC071D300998E91 /* Reachability */,
+				D4A21FCA2FC071E500998E91 /* SkeletonView */,
+				D4A21FD22FC0728B00998E91 /* Kingfisher */,
 			);
 			productName = Sportify;
 			productReference = 6F301BCB2FBCBE4D004727A8 /* Sportify.app */;
@@ -107,6 +125,12 @@
 			);
 			mainGroup = 6F301BC22FBCBE4C004727A8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D4A21FC12FC071C200998E91 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				D4A21FC62FC071D300998E91 /* XCRemoteSwiftPackageReference "Reachability" */,
+				D4A21FC92FC071E500998E91 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				D4A21FD12FC0728B00998E91 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6F301BCC2FBCBE4D004727A8 /* Products */;
 			projectDirPath = "";
@@ -153,6 +177,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -185,6 +210,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -345,6 +371,69 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D4A21FC12FC071C200998E91 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.7;
+			};
+		};
+		D4A21FC62FC071D300998E91 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		D4A21FC92FC071E500998E91 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
+		D4A21FD12FC0728B00998E91 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D4A21FC22FC071C200998E91 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A21FC12FC071C200998E91 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		D4A21FC42FC071C200998E91 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A21FC12FC071C200998E91 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		D4A21FC72FC071D300998E91 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A21FC62FC071D300998E91 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
+		D4A21FCA2FC071E500998E91 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A21FC92FC071E500998E91 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+		D4A21FD22FC0728B00998E91 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A21FD12FC0728B00998E91 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6F301BC32FBCBE4C004727A8 /* Project object */;
 }
