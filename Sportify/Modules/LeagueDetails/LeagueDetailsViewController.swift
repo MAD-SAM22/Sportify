@@ -12,12 +12,16 @@ class LeagueDetailsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var favoriteBarButtonItem: UIBarButtonItem!
     var presenter: LeagueDetailsPresenterProtocol!
-
+    var selectedLeague: League?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Initialize the presenter and inject the view (self)
         presenter = LeagueDetailsPresenter(view: self)
+        presenter.selectedLeague=selectedLeague
+        
+        setupNavigationBar()
 
         setupCollectionView()
         // Set the initial UI state for the heart icon on load
@@ -34,6 +38,24 @@ class LeagueDetailsViewController: UIViewController {
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         // Immediately delegate the action to the Presenter
         presenter.didTapFavorite()
+    }
+    
+    private func setupNavigationBar() {
+        title = selectedLeague?.name ?? "League Details"
+
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.boldSystemFont(ofSize: 20)
+        ]
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.isHidden = false
     }
 }
 // MARK: - MVP View Protocol

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3WS-q6-uGQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N2A-tJ-CnK">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -331,9 +331,9 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="m1I-GS-TMp" firstAttribute="width" secondItem="SZV-LH-3yr" secondAttribute="width" id="0T7-VX-3cm"/>
                                                 <constraint firstAttribute="bottom" secondItem="m1I-GS-TMp" secondAttribute="bottom" id="6QO-EQ-Gmd"/>
                                                 <constraint firstItem="m1I-GS-TMp" firstAttribute="centerX" secondItem="SZV-LH-3yr" secondAttribute="centerX" id="9ec-Wo-74B"/>
-                                                <constraint firstItem="m1I-GS-TMp" firstAttribute="width" secondItem="HbT-pp-0Zy" secondAttribute="width" multiplier="3.2" id="SWh-ny-7yL"/>
                                                 <constraint firstItem="HbT-pp-0Zy" firstAttribute="centerY" secondItem="SZV-LH-3yr" secondAttribute="centerY" id="Scw-SO-dYQ"/>
                                                 <constraint firstItem="HbT-pp-0Zy" firstAttribute="centerX" secondItem="SZV-LH-3yr" secondAttribute="centerX" id="i3P-iB-Z3d"/>
                                             </constraints>

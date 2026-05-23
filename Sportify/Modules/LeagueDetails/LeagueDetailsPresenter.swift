@@ -10,6 +10,8 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
     
     weak var view: LeagueDetailsViewProtocol?
     
+    var selectedLeague: League?
+
     private var currentTabIndex = 0
     private var isFavoriteLeague = false
     
@@ -27,6 +29,8 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
     func viewDidLoad() {
         // Later: Call NetworkManager here to fetch data.
         // For now: Tell the view we are ready to display our static data.
+        // NetworkManager.shared.fetchLeagueDetails(id: selectedLeague?.id) { ... }
+
         view?.reloadData()
     }
     

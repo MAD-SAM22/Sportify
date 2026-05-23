@@ -15,6 +15,7 @@ protocol LeagueDetailsViewProtocol: AnyObject {
 
 // MARK: - Presenter Protocol
 protocol LeagueDetailsPresenterProtocol {
+    var selectedLeague: League? { get set } 
     func viewDidLoad()
     func didSelectTab(index: Int)
     

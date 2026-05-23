@@ -20,6 +20,20 @@ class TabControlCollectionViewCell: UICollectionViewCell {
         // Default state
         titleLabel.textColor = .secondaryLabel
         indicatorView.isHidden = true
+        
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
+
+        // Default unselected state
+        titleLabel.textColor = UIColor.white.withAlphaComponent(0.4)
+        titleLabel.font = UIFont.systemFont(ofSize: 15)
+        titleLabel.textAlignment = .center
+
+        // Indicator styling
+        indicatorView.backgroundColor = .systemBlue
+        indicatorView.layer.cornerRadius = 2
+        indicatorView.isHidden = true
+        indicatorView.transform = CGAffineTransform(scaleX: 0.1, y: 1.0)
     }
         
         // This built-in property automatically updates when the collection view changes selection
