@@ -21,8 +21,16 @@ class OnboardingViewController: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        // --- ADDED: Force the strict layout rules programmatically ---
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        collectionView.collectionViewLayout = layout
 
-        // Tell presenter the view is ready
+        // Prevent iOS from adding invisible padding for the notch/dynamic island
+        collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.showsHorizontalScrollIndicator = false
         presenter.viewDidLoad()
     }
 
@@ -54,24 +62,32 @@ extension OnboardingViewController: OnboardingViewProtocol {
     }
 
     func navigateToMainApp() {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            guard let mainTabBarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? UITabBarController else {
-                fatalError("MainTabBarController not found in Storyboard")
-            }
-            
-            // Access the current window via the SceneDelegate
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let sceneDelegate = windowScene.delegate as? SceneDelegate,
-                  let window = sceneDelegate.window else {
-                return
-            }
-            
-            // Swap the root view controller with a smooth cross-dissolve animation
-            UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve, animations: {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        guard
+            let mainTabBarVC = storyboard.instantiateViewController(
+                withIdentifier: "MainTabBarController") as? UITabBarController
+        else {
+            fatalError("MainTabBarController not found in Storyboard")
+        }
+
+        // Access the current window via the SceneDelegate
+        guard
+            let windowScene = UIApplication.shared.connectedScenes.first
+                as? UIWindowScene,
+            let sceneDelegate = windowScene.delegate as? SceneDelegate,
+            let window = sceneDelegate.window
+        else {
+            return
+        }
+
+        // Swap the root view controller with a smooth cross-dissolve animation
+        UIView.transition(
+            with: window, duration: 0.4, options: .transitionCrossDissolve,
+            animations: {
                 window.rootViewController = mainTabBarVC
             }, completion: nil)
-        }
+    }
 }
 
 // MARK: - UICollectionView DataSource & Delegate
@@ -106,9 +122,7 @@ extension OnboardingViewController: UICollectionViewDelegate,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(
-            width: collectionView.frame.width,
-            height: collectionView.frame.height)
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
     }
 
     // Update page control when user swipes manually
