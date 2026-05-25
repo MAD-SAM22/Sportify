@@ -60,19 +60,36 @@ class LeagueDetailsViewController: UIViewController {
 }
 // MARK: - MVP View Protocol
 extension LeagueDetailsViewController: LeagueDetailsViewProtocol {
-    func reloadData() {
-        // Ensure UI updates happen on the main thread
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
     func updateFavoriteIcon(isFavorite: Bool) {
         DispatchQueue.main.async {
             let iconName = isFavorite ? "heart.fill" : "heart"
             self.favoriteBarButtonItem.image = UIImage(systemName: iconName)
         }
     }
-}
+    
+    func reloadData() {
+        // Ensure UI updates happen on the main thread
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func navigateToTeamDetails(with team: Team) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let teamVC = storyboard.instantiateViewController(
+                withIdentifier: "TeamDetailsViewController"
+            ) as? TeamDetailsViewController {
+
+                // Pass real data fetched via the presenter
+                teamVC.selectedTeam = team
+                teamVC.sport = team.sport // Dynamic handling based on selection
+
+                navigationController?.pushViewController(teamVC, animated: true)
+            }
+        }
+    }
+    
+   
 // MARK: - UI Setup & Compositional Layout
 extension LeagueDetailsViewController {
 
@@ -280,9 +297,17 @@ extension LeagueDetailsViewController: UICollectionViewDelegate {
     func collectionView(
         _ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath
     ) {
-        if indexPath.section == 1 {
-            // Tell the presenter the user tapped a tab
-            presenter.didSelectTab(index: indexPath.row)
-        }
+        switch indexPath.section {
+                case 0:
+                    //  1. When a team in Section 0 is tapped, notify the presenter
+                    presenter.didSelectTeam(at: indexPath.row)
+                    
+                case 1:
+                    // Tell the presenter the user tapped a tab
+                    presenter.didSelectTab(index: indexPath.row)
+                    
+                default:
+                    break
+                }
     }
 }

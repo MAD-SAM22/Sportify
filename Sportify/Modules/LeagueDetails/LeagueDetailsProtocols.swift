@@ -11,6 +11,7 @@ protocol LeagueDetailsViewProtocol: AnyObject {
     func reloadData()
     // New method for the View to update the icon UI
     func updateFavoriteIcon(isFavorite: Bool)
+    func navigateToTeamDetails(with team: Team)
 }
 
 // MARK: - Presenter Protocol
@@ -18,6 +19,7 @@ protocol LeagueDetailsPresenterProtocol {
     var selectedLeague: League? { get set } 
     func viewDidLoad()
     func didSelectTab(index: Int)
+    func didSelectTeam(at index: Int)
     
     // New methods for Favorite logic
     func didTapFavorite()

@@ -77,4 +77,24 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
         // Tell the view to update its UI based on the new state
         view?.updateFavoriteIcon(isFavorite: isFavoriteLeague)
     }
+    
+    func didSelectTeam(at index: Int) {
+            // Guard checking against your dummy counter limit
+            guard index >= 0 && index < totalTeams else { return }
+            
+            // Create dynamic dummy data based on the tapped item index
+            let mockTeam = Team(
+                name:        "Team \(index)",
+                country:     "Germany",
+                stadium:     "Allianz Arena",
+                founded:     "1900",
+                about:       "A powerhouse competitor within this tournament circuit...",
+                bannerImage: "team_banner",
+                logoImage:   "bayern_logo",
+                sport:       "Soccer"
+            )
+
+            // Tell the view to perform the segue presentation transition
+            view?.navigateToTeamDetails(with: mockTeam)
+        }
 }

@@ -373,14 +373,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgg-hb-gjl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4762.5954198473282" y="-285.21126760563379"/>
+            <point key="canvasLocation" x="4695" y="-515"/>
         </scene>
         <!--Team Details View Controller-->
         <scene sceneID="TtN-LF-ehn">
             <objects>
-                <viewController id="QX9-tu-LXV" customClass="TeamDetailsViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeamDetailsViewController" id="QX9-tu-LXV" customClass="TeamDetailsViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="57g-ec-b5f">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1XA-Wj-zw6">
@@ -423,6 +423,7 @@
                             <constraint firstItem="7gC-aP-X8u" firstAttribute="trailing" secondItem="1XA-Wj-zw6" secondAttribute="trailing" id="ndn-eN-nUO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="FMq-iU-1QQ"/>
                     <connections>
                         <outlet property="contentStackView" destination="31m-ca-6gD" id="Mmo-C3-J0n"/>
                         <outlet property="scrollView" destination="1XA-Wj-zw6" id="IIM-vh-mr1"/>
@@ -430,7 +431,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQU-HW-35X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5590.0763358778622" y="-278.16901408450707"/>
+            <point key="canvasLocation" x="4694" y="139"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="YeL-l4-x13">
@@ -608,6 +609,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="C0z-gN-7MJ" kind="relationship" relationship="rootViewController" id="ZrC-NL-rzD"/>
+                        <segue destination="QX9-tu-LXV" kind="push" id="7qI-Jr-79B"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bav-F9-HXj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
