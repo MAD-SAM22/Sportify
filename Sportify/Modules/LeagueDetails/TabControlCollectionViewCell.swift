@@ -30,7 +30,6 @@ class TabControlCollectionViewCell: UICollectionViewCell {
         titleLabel.textAlignment = .center
 
         // Indicator styling
-        indicatorView.backgroundColor = .systemBlue
         indicatorView.layer.cornerRadius = 2
         indicatorView.isHidden = true
         indicatorView.transform = CGAffineTransform(scaleX: 0.1, y: 1.0)

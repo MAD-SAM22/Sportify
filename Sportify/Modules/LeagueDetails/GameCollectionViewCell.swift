@@ -52,8 +52,8 @@ class GameCollectionViewCell: UICollectionViewCell {
             timeLabel.text = time
             
             // For our current static data phase:
-            homeTeamImageView.image = UIImage(named: homeImageURL)
-            awayTeamImageView.image = UIImage(named: awayImageURL)
+            homeTeamImageView.image = UIImage(named: "bayern_logo")
+            awayTeamImageView.image = UIImage(named: "bayern_logo")
             
             /* Later, when we hook up the API and use Alamofire/Kingfisher,
             you will swap the two lines above for something like:

@@ -81,6 +81,14 @@ extension FavoritesViewController: FavoritesViewProtocol {
             showEmptyState()
         }
     }
+    
+    func navigateToLeagueDetails(with league: League , sport:SportsHome ) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
+            detailsVC.selectedLeague = league
+            navigationController?.pushViewController(detailsVC, animated: true)
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource

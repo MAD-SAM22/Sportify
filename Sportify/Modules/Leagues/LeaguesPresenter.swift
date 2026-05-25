@@ -34,6 +34,6 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
 
     func didSelectLeague(at index: Int) {
         let selected = leagues[index]
-        view?.navigateToDetails(with: selected)
+        view?.navigateToLeagueDetails(with: selected , sport: selectedSport ?? SportsHome(name: "football", imageName: ""))
     }
 }
