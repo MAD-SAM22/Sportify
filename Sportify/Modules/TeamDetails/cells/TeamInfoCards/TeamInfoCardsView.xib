@@ -11,131 +11,137 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TeamInfoCardsView" customModule="Sportify" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hstack-id">
-                    <rect key="frame" x="16" y="8" width="343" height="94"/>
+                    <rect key="frame" x="16" y="8" width="361" height="836"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="country-card-id">
-                            <rect key="frame" x="0.0" y="0.0" width="106.33333333333333" height="94"/>
+                            <rect key="frame" x="0.0" y="0.0" width="112.33333333333333" height="836"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="cv-vstack">
-                                    <rect key="frame" x="8" y="16.333333333333332" width="90.333333333333329" height="61.333333333333343"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cv-vstack">
+                                    <rect key="frame" x="6" y="14" width="100.33333333333333" height="808"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="🌐" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="country-icon-id">
-                                            <rect key="frame" x="32.333333333333336" y="0.0" width="26" height="26.333333333333332"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="globe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="country-icon-id">
+                                            <rect key="frame" x="36.333333333333336" y="0.66666666666666607" width="28.000000000000007" height="26.666666666666671"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="h-c-ico"/>
+                                                <constraint firstAttribute="width" constant="28" id="w-c-ico"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Country:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="country-key-id">
+                                            <rect key="frame" x="24.000000000000004" y="32" width="52.333333333333343" height="15.666666666666664"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="Country:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="country-key-id">
-                                            <rect key="frame" x="22.666666666666661" y="29.333333333333332" width="45.333333333333343" height="13.333333333333332"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="England" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="country-value-id">
-                                            <rect key="frame" x="19.000000000000004" y="45.666666666666671" width="52.333333333333343" height="15.666666666666664"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="England" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="country-value-id">
+                                            <rect key="frame" x="18.666666666666664" y="51.666666666666629" width="62.999999999999993" height="756.33333333333337"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" red="0.12" green="0.14999999999999999" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.085964210329999999" green="0.10124885290000001" blue="0.15218469500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
-                                <constraint firstItem="cv-vstack" firstAttribute="centerX" secondItem="country-card-id" secondAttribute="centerX" id="cv-cx"/>
-                                <constraint firstItem="cv-vstack" firstAttribute="centerY" secondItem="country-card-id" secondAttribute="centerY" id="cv-cy"/>
-                                <constraint firstItem="cv-vstack" firstAttribute="leading" secondItem="country-card-id" secondAttribute="leading" constant="8" id="cv-l"/>
-                                <constraint firstAttribute="trailing" secondItem="cv-vstack" secondAttribute="trailing" constant="8" id="cv-r"/>
+                                <constraint firstAttribute="bottom" secondItem="cv-vstack" secondAttribute="bottom" constant="14" id="cv-b"/>
+                                <constraint firstItem="cv-vstack" firstAttribute="leading" secondItem="country-card-id" secondAttribute="leading" constant="6" id="cv-l"/>
+                                <constraint firstAttribute="trailing" secondItem="cv-vstack" secondAttribute="trailing" constant="6" id="cv-r"/>
+                                <constraint firstItem="cv-vstack" firstAttribute="top" secondItem="country-card-id" secondAttribute="top" constant="14" id="cv-t"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="12"/>
+                                    <integer key="value" value="16"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-card-id">
-                            <rect key="frame" x="118.33333333333334" y="0.0" width="106.33333333333334" height="94"/>
+                            <rect key="frame" x="124.33333333333334" y="0.0" width="112.33333333333334" height="836"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="sv-vstack">
-                                    <rect key="frame" x="8" y="8.6666666666666714" width="90.333333333333329" height="77"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sv-vstack">
+                                    <rect key="frame" x="6" y="14" width="100.33333333333333" height="808"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="🏟️" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-icon-id">
-                                            <rect key="frame" x="32.333333333333314" y="0.0" width="26" height="26.333333333333332"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="sportscourt" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-icon-id">
+                                            <rect key="frame" x="36.333333333333314" y="1.6666666666666643" width="28" height="25.000000000000004"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="h-s-ico"/>
+                                                <constraint firstAttribute="width" constant="28" id="w-s-ico"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Stadium:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-key-id">
+                                            <rect key="frame" x="23.333333333333311" y="32" width="53.666666666666657" height="733.66666666666663"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="Stadium:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-key-id">
-                                            <rect key="frame" x="22.000000000000004" y="29.333333333333332" width="46.333333333333343" height="13.333333333333332"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="Stamford Bridge" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-value-id">
-                                            <rect key="frame" x="13.333333333333314" y="45.666666666666671" width="64" height="31.333333333333329"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Stamford Bridge" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-value-id">
+                                            <rect key="frame" x="12" y="769.66666666666663" width="76.666666666666671" height="38.333333333333371"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" red="0.12" green="0.14999999999999999" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.085964210329999999" green="0.10124885290000001" blue="0.15218469500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
-                                <constraint firstItem="sv-vstack" firstAttribute="centerX" secondItem="stadium-card-id" secondAttribute="centerX" id="sv-cx"/>
-                                <constraint firstItem="sv-vstack" firstAttribute="centerY" secondItem="stadium-card-id" secondAttribute="centerY" id="sv-cy"/>
-                                <constraint firstItem="sv-vstack" firstAttribute="leading" secondItem="stadium-card-id" secondAttribute="leading" constant="8" id="sv-l"/>
-                                <constraint firstAttribute="trailing" secondItem="sv-vstack" secondAttribute="trailing" constant="8" id="sv-r"/>
+                                <constraint firstAttribute="bottom" secondItem="sv-vstack" secondAttribute="bottom" constant="14" id="sv-b"/>
+                                <constraint firstItem="sv-vstack" firstAttribute="leading" secondItem="stadium-card-id" secondAttribute="leading" constant="6" id="sv-l"/>
+                                <constraint firstAttribute="trailing" secondItem="sv-vstack" secondAttribute="trailing" constant="6" id="sv-r"/>
+                                <constraint firstItem="sv-vstack" firstAttribute="top" secondItem="stadium-card-id" secondAttribute="top" constant="14" id="sv-t"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="12"/>
+                                    <integer key="value" value="16"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="founded-card-id">
-                            <rect key="frame" x="236.66666666666666" y="0.0" width="106.33333333333334" height="94"/>
+                            <rect key="frame" x="248.66666666666671" y="0.0" width="112.33333333333334" height="836"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="fv-vstack">
-                                    <rect key="frame" x="8.0000000000000284" y="16.333333333333332" width="90.333333333333329" height="61.333333333333343"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fv-vstack">
+                                    <rect key="frame" x="6" y="14" width="100.33333333333333" height="808"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="📅" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="founded-icon-id">
-                                            <rect key="frame" x="32.333333333333314" y="0.0" width="26" height="26.333333333333332"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="founded-icon-id">
+                                            <rect key="frame" x="36.333333333333314" y="1.6666666666666643" width="28" height="25.000000000000004"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="h-f-ico"/>
+                                                <constraint firstAttribute="width" constant="28" id="w-f-ico"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Founded:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="founded-key-id">
+                                            <rect key="frame" x="21.666666666666629" y="32" width="57" height="752.66666666666663"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="Founded:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="founded-key-id">
-                                            <rect key="frame" x="20.666666666666632" y="29.333333333333332" width="49.333333333333343" height="13.333333333333332"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="1905" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="founded-value-id">
-                                            <rect key="frame" x="28.666666666666629" y="45.666666666666671" width="33" height="15.666666666666664"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="1905" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="founded-value-id">
+                                            <rect key="frame" x="30.333333333333311" y="788.66666666666663" width="39.666666666666657" height="19.333333333333371"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" red="0.12" green="0.14999999999999999" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.085964210329999999" green="0.10124885290000001" blue="0.15218469500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
-                                <constraint firstItem="fv-vstack" firstAttribute="centerX" secondItem="founded-card-id" secondAttribute="centerX" id="fv-cx"/>
-                                <constraint firstItem="fv-vstack" firstAttribute="centerY" secondItem="founded-card-id" secondAttribute="centerY" id="fv-cy"/>
-                                <constraint firstItem="fv-vstack" firstAttribute="leading" secondItem="founded-card-id" secondAttribute="leading" constant="8" id="fv-l"/>
-                                <constraint firstAttribute="trailing" secondItem="fv-vstack" secondAttribute="trailing" constant="8" id="fv-r"/>
+                                <constraint firstAttribute="bottom" secondItem="fv-vstack" secondAttribute="bottom" constant="14" id="fv-b"/>
+                                <constraint firstItem="fv-vstack" firstAttribute="leading" secondItem="founded-card-id" secondAttribute="leading" constant="6" id="fv-l"/>
+                                <constraint firstAttribute="trailing" secondItem="fv-vstack" secondAttribute="trailing" constant="6" id="fv-r"/>
+                                <constraint firstItem="fv-vstack" firstAttribute="top" secondItem="founded-card-id" secondAttribute="top" constant="14" id="fv-t"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="12"/>
+                                    <integer key="value" value="16"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -144,7 +150,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" red="0.080000000000000002" green="0.10000000000000001" blue="0.17999999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.078431372550000003" green="0.098039215690000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hstack-id" secondAttribute="bottom" constant="8" id="hs-b"/>
                 <constraint firstItem="hstack-id" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="hs-l"/>
@@ -165,4 +171,9 @@
             <point key="canvasLocation" x="139" y="154"/>
         </view>
     </objects>
+    <resources>
+        <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="globe" catalog="system" width="128" height="123"/>
+        <image name="sportscourt" catalog="system" width="128" height="83"/>
+    </resources>
 </document>

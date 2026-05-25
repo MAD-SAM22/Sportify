@@ -43,7 +43,7 @@ class TeamHeaderView: UIView {
 
     func configure(teamName: String, bannerImage: UIImage?, logoImage: UIImage?) {
         teamNameLabel.text = teamName
-        bannerImageView.image = bannerImage ?? UIImage(named: "placeholder_banner")
-        teamLogoImageView.image = logoImage ?? UIImage(systemName: "shield.fill")
+        bannerImageView.image = bannerImage ?? UIImage(named: "team_detail_bg")
+        teamLogoImageView.image = logoImage ?? UIImage(named: "bayern_logo")
     }
 }
