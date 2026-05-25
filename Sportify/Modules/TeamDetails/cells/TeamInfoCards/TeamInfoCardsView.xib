@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,48 +14,29 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-
-                <!-- Horizontal StackView: 3 equal cards -->
-                <stackView opaque="NO" contentMode="scaleToFill"
-                           axis="horizontal" distribution="fillEqually" spacing="12"
-                           translatesAutoresizingMaskIntoConstraints="NO" id="hstack-id">
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hstack-id">
                     <rect key="frame" x="16" y="8" width="343" height="94"/>
                     <subviews>
-
-                        <!-- ── COUNTRY CARD ── -->
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="country-card-id">
-                            <color key="backgroundColor" red="0.12" green="0.15" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="12"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                            </userDefinedRuntimeAttributes>
+                            <rect key="frame" x="0.0" y="0.0" width="106.33333333333333" height="94"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill"
-                                           axis="vertical" alignment="center" spacing="3"
-                                           translatesAutoresizingMaskIntoConstraints="NO" id="cv-vstack">
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="cv-vstack">
+                                    <rect key="frame" x="8" y="16.333333333333332" width="90.333333333333329" height="61.333333333333343"/>
                                     <subviews>
-                                        <!-- Icon -->
-                                        <label opaque="NO" userInteractionEnabled="NO"
-                                               text="🌐" textAlignment="center"
-                                               translatesAutoresizingMaskIntoConstraints="NO" id="country-icon-id">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="🌐" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="country-icon-id">
+                                            <rect key="frame" x="32.333333333333336" y="0.0" width="26" height="26.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <!-- Key -->
-                                        <label opaque="NO" userInteractionEnabled="NO"
-                                               text="Country:" textAlignment="center"
-                                               translatesAutoresizingMaskIntoConstraints="NO" id="country-key-id">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="Country:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="country-key-id">
+                                            <rect key="frame" x="22.666666666666661" y="29.333333333333332" width="45.333333333333343" height="13.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.6" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <!-- Value -->
-                                        <label opaque="NO" userInteractionEnabled="NO"
-                                               text="England" textAlignment="center" numberOfLines="2"
-                                               translatesAutoresizingMaskIntoConstraints="NO" id="country-value-id">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="England" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="country-value-id">
+                                            <rect key="frame" x="19.000000000000004" y="45.666666666666671" width="52.333333333333343" height="15.666666666666664"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -61,45 +44,40 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
+                            <color key="backgroundColor" red="0.12" green="0.14999999999999999" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="cv-vstack" firstAttribute="centerX" secondItem="country-card-id" secondAttribute="centerX" id="cv-cx"/>
                                 <constraint firstItem="cv-vstack" firstAttribute="centerY" secondItem="country-card-id" secondAttribute="centerY" id="cv-cy"/>
                                 <constraint firstItem="cv-vstack" firstAttribute="leading" secondItem="country-card-id" secondAttribute="leading" constant="8" id="cv-l"/>
                                 <constraint firstAttribute="trailing" secondItem="cv-vstack" secondAttribute="trailing" constant="8" id="cv-r"/>
                             </constraints>
-                        </view>
-
-                        <!-- ── STADIUM CARD ── -->
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-card-id">
-                            <color key="backgroundColor" red="0.12" green="0.15" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="12"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-card-id">
+                            <rect key="frame" x="118.33333333333334" y="0.0" width="106.33333333333334" height="94"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill"
-                                           axis="vertical" alignment="center" spacing="3"
-                                           translatesAutoresizingMaskIntoConstraints="NO" id="sv-vstack">
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="sv-vstack">
+                                    <rect key="frame" x="8" y="8.6666666666666714" width="90.333333333333329" height="77"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO"
-                                               text="🏟️" textAlignment="center"
-                                               translatesAutoresizingMaskIntoConstraints="NO" id="stadium-icon-id">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="🏟️" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-icon-id">
+                                            <rect key="frame" x="32.333333333333314" y="0.0" width="26" height="26.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO"
-                                               text="Stadium:" textAlignment="center"
-                                               translatesAutoresizingMaskIntoConstraints="NO" id="stadium-key-id">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="Stadium:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-key-id">
+                                            <rect key="frame" x="22.000000000000004" y="29.333333333333332" width="46.333333333333343" height="13.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.6" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO"
-                                               text="Stamford Bridge" textAlignment="center" numberOfLines="2"
-                                               translatesAutoresizingMaskIntoConstraints="NO" id="stadium-value-id">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="Stamford Bridge" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-value-id">
+                                            <rect key="frame" x="13.333333333333314" y="45.666666666666671" width="64" height="31.333333333333329"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -107,45 +85,40 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
+                            <color key="backgroundColor" red="0.12" green="0.14999999999999999" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="sv-vstack" firstAttribute="centerX" secondItem="stadium-card-id" secondAttribute="centerX" id="sv-cx"/>
                                 <constraint firstItem="sv-vstack" firstAttribute="centerY" secondItem="stadium-card-id" secondAttribute="centerY" id="sv-cy"/>
                                 <constraint firstItem="sv-vstack" firstAttribute="leading" secondItem="stadium-card-id" secondAttribute="leading" constant="8" id="sv-l"/>
                                 <constraint firstAttribute="trailing" secondItem="sv-vstack" secondAttribute="trailing" constant="8" id="sv-r"/>
                             </constraints>
-                        </view>
-
-                        <!-- ── FOUNDED CARD ── -->
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="founded-card-id">
-                            <color key="backgroundColor" red="0.12" green="0.15" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="12"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="founded-card-id">
+                            <rect key="frame" x="236.66666666666666" y="0.0" width="106.33333333333334" height="94"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill"
-                                           axis="vertical" alignment="center" spacing="3"
-                                           translatesAutoresizingMaskIntoConstraints="NO" id="fv-vstack">
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="fv-vstack">
+                                    <rect key="frame" x="8.0000000000000284" y="16.333333333333332" width="90.333333333333329" height="61.333333333333343"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO"
-                                               text="📅" textAlignment="center"
-                                               translatesAutoresizingMaskIntoConstraints="NO" id="founded-icon-id">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="📅" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="founded-icon-id">
+                                            <rect key="frame" x="32.333333333333314" y="0.0" width="26" height="26.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO"
-                                               text="Founded:" textAlignment="center"
-                                               translatesAutoresizingMaskIntoConstraints="NO" id="founded-key-id">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="Founded:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="founded-key-id">
+                                            <rect key="frame" x="20.666666666666632" y="29.333333333333332" width="49.333333333333343" height="13.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.6" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO"
-                                               text="1905" textAlignment="center"
-                                               translatesAutoresizingMaskIntoConstraints="NO" id="founded-value-id">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" text="1905" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="founded-value-id">
+                                            <rect key="frame" x="28.666666666666629" y="45.666666666666671" width="33" height="15.666666666666664"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -153,38 +126,43 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
+                            <color key="backgroundColor" red="0.12" green="0.14999999999999999" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="fv-vstack" firstAttribute="centerX" secondItem="founded-card-id" secondAttribute="centerX" id="fv-cx"/>
                                 <constraint firstItem="fv-vstack" firstAttribute="centerY" secondItem="founded-card-id" secondAttribute="centerY" id="fv-cy"/>
                                 <constraint firstItem="fv-vstack" firstAttribute="leading" secondItem="founded-card-id" secondAttribute="leading" constant="8" id="fv-l"/>
                                 <constraint firstAttribute="trailing" secondItem="fv-vstack" secondAttribute="trailing" constant="8" id="fv-r"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </view>
-
                     </subviews>
                 </stackView>
-
             </subviews>
-
-            <!-- Pin stack to root view -->
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.080000000000000002" green="0.10000000000000001" blue="0.17999999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="hstack-id" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="hs-t"/>
+                <constraint firstAttribute="bottom" secondItem="hstack-id" secondAttribute="bottom" constant="8" id="hs-b"/>
                 <constraint firstItem="hstack-id" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="hs-l"/>
                 <constraint firstAttribute="trailing" secondItem="hstack-id" secondAttribute="trailing" constant="16" id="hs-r"/>
-                <constraint firstAttribute="bottom" secondItem="hstack-id" secondAttribute="bottom" constant="8" id="hs-b"/>
+                <constraint firstItem="hstack-id" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="hs-t"/>
             </constraints>
-
-            <color key="backgroundColor" red="0.08" green="0.10" blue="0.18" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-
             <connections>
-                <outlet property="countryCard"       destination="country-card-id"   id="o-cc"/>
-                <outlet property="stadiumCard"       destination="stadium-card-id"   id="o-sc"/>
-                <outlet property="foundedCard"       destination="founded-card-id"   id="o-fc"/>
-                <outlet property="countryValueLabel" destination="country-value-id"  id="o-cv"/>
-                <outlet property="stadiumValueLabel" destination="stadium-value-id"  id="o-sv"/>
-                <outlet property="foundedValueLabel" destination="founded-value-id"  id="o-fv"/>
+                <outlet property="countryCard" destination="country-card-id" id="o-cc"/>
+                <outlet property="countryIconLabel" destination="country-icon-id" id="cKV-63-6dq"/>
+                <outlet property="countryValueLabel" destination="country-value-id" id="o-cv"/>
+                <outlet property="foundedCard" destination="founded-card-id" id="o-fc"/>
+                <outlet property="foundedIconLabel" destination="founded-icon-id" id="ftH-6R-w11"/>
+                <outlet property="foundedValueLabel" destination="founded-value-id" id="o-fv"/>
+                <outlet property="stadiumCard" destination="stadium-card-id" id="o-sc"/>
+                <outlet property="stadiumIconLabel" destination="stadium-icon-id" id="aVh-Gz-tpg"/>
+                <outlet property="stadiumValueLabel" destination="stadium-value-id" id="o-sv"/>
             </connections>
+            <point key="canvasLocation" x="139" y="154"/>
         </view>
     </objects>
 </document>

@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct Team {
+    let name: String
+    let country: String
+    let stadium: String
+    let founded: String
+    let about: String
+    let bannerImage: String
+    let logoImage: String
+    let sport: String
+}
