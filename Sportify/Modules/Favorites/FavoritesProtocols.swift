@@ -9,10 +9,12 @@ protocol FavoritesViewProtocol: AnyObject {
     func showEmptyState()
     func showFavorites(_ leagues: [League])
     func deleteRow(at index: Int)
+    func navigateToLeagueDetails(with league: League , sport:SportsHome)
 }
 
 protocol FavoritesPresenterProtocol: AnyObject {
     func viewDidLoad()
     func didSelectLeague(at index: Int)
     func didDeleteLeague(at index: Int)
+    
 }

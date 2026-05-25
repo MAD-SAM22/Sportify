@@ -32,7 +32,8 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
     }
 
     func didSelectLeague(at index: Int) {
-        // navigate to league details — add later
+        let selected = favorites[index]
+        view?.navigateToLeagueDetails(with: selected ,sport: SportsHome(name: "football", imageName: ""))
     }
 
     func didDeleteLeague(at index: Int) {

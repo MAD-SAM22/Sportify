@@ -64,12 +64,12 @@ extension LeaguesViewController: LeaguesViewProtocol {
         present(alert, animated: true)
     }
 
-    func navigateToDetails(with league: League) {
+    func navigateToLeagueDetails(with league: League , sport:SportsHome ) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
-//            detailsVC.selectedLeague = league
-//            navigationController?.pushViewController(detailsVC, animated: true)
-//        }
+        if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
+            detailsVC.selectedLeague = league
+            navigationController?.pushViewController(detailsVC, animated: true)
+        }
     }
 }
 
