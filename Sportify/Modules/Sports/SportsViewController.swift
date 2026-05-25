@@ -13,7 +13,7 @@ class SportsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
 
     var presenter: SportsPresenterProtocol!
-    private var sports: [SportsHome] = []
+    private var sports: [Sport] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class SportsViewController: UIViewController {
 // MARK: - SportsViewProtocol
 extension SportsViewController: SportsViewProtocol {
 
-    func showSports(_ sports: [SportsHome]) {
+    func showSports(_ sports: [Sport]) {
         self.sports = sports
         collectionView.reloadData()
     }
@@ -47,7 +47,7 @@ extension SportsViewController: SportsViewProtocol {
         present(alert, animated: true)
     }
 
-    func navigateToLeagues(with sport: SportsHome) {
+    func navigateToLeagues(with sport: Sport) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let leaguesVC = storyboard.instantiateViewController(withIdentifier: "LeaguesViewController") as? LeaguesViewController {
             leaguesVC.selectedSport = sport
@@ -66,8 +66,8 @@ extension SportsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeSportsCell", for: indexPath) as! SportsCollectionViewCell
         let sport = sports[indexPath.item]
-        cell.sportLabel.text = sport.name
-        cell.sportImageView.image = UIImage(named: sport.imageName)
+        cell.sportLabel.text = sport.sportName
+        cell.sportImageView.image = UIImage(named: sport.sportThumb ?? "")
         return cell
     }
 }

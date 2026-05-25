@@ -82,7 +82,7 @@ extension FavoritesViewController: FavoritesViewProtocol {
         }
     }
     
-    func navigateToLeagueDetails(with league: League , sport:SportsHome ) {
+    func navigateToLeagueDetails(with league: League , sport:Sport ) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
             detailsVC.selectedLeague = league
@@ -101,8 +101,8 @@ extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeaguesCell", for: indexPath) as! LeaguesTableViewCell
         let league = favorites[indexPath.row]
-        cell.leagueName.text = league.name
-        cell.leagueImage.image = UIImage(named: league.badgeImageName)
+        cell.leagueName.text = league.leagueName
+        cell.leagueImage.image = UIImage(named: league.leagueLogo ?? "")
 
 
 

@@ -21,9 +21,24 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
         if hasFavorites {
             // Hardcoded for now — replace with CoreData fetch later
             favorites = [
-                League(name: "Premier League", badgeImageName: "football_img"),
-                League(name: "LaLiga",         badgeImageName: "football_img"),
-                League(name: "Serie A",        badgeImageName: "football_img"),
+
+                League(
+                    leagueKey: 1,
+                    leagueName: "Premier League",
+                    leagueLogo: "football_img"
+                ),
+
+                League(
+                    leagueKey: 2,
+                    leagueName: "LaLiga",
+                    leagueLogo: "football_img"
+                ),
+
+                League(
+                    leagueKey: 3,
+                    leagueName: "Serie A",
+                    leagueLogo: "football_img"
+                )
             ]
             view?.showFavorites(favorites)
         } else {
@@ -33,7 +48,11 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
 
     func didSelectLeague(at index: Int) {
         let selected = favorites[index]
-        view?.navigateToLeagueDetails(with: selected ,sport: SportsHome(name: "football", imageName: ""))
+        view?
+            .navigateToLeagueDetails(
+                with: selected ,
+                sport: Sport(sportName: "football", sportThumb: "")
+            )
     }
 
     func didDeleteLeague(at index: Int) {

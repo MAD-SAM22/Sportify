@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().tintColor = .white
+        print(APIConstants.apiKey)
+        print(APIConstants.baseURL)
         
         return true
     }

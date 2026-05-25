@@ -12,7 +12,7 @@ class LeaguesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var presenter: LeaguesPresenterProtocol!
-    var selectedSport: SportsHome?
+    var selectedSport: Sport?
     private var leagues: [League] = []
 
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class LeaguesViewController: UIViewController {
     }
 
     private func setupNavigationBar() {
-        title = selectedSport?.name ?? "Leagues"
+        title = selectedSport?.sportName ?? "Leagues"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
@@ -64,7 +64,7 @@ extension LeaguesViewController: LeaguesViewProtocol {
         present(alert, animated: true)
     }
 
-    func navigateToLeagueDetails(with league: League , sport:SportsHome ) {
+    func navigateToLeagueDetails(with league: League , sport:Sport ) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
             detailsVC.selectedLeague = league
@@ -82,8 +82,8 @@ extension LeaguesViewController: UITableViewDataSource , UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeaguesCell", for: indexPath) as! LeaguesTableViewCell
         let league = leagues[indexPath.row]
-        cell.leagueName.text = league.name
-        cell.leagueImage.image = UIImage(named: league.badgeImageName)
+        cell.leagueName.text = league.leagueName
+        cell.leagueImage.image = UIImage(named: league.leagueLogo ?? "")
         return cell
     }
     

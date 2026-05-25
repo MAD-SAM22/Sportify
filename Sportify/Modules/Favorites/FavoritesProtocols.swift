@@ -9,7 +9,7 @@ protocol FavoritesViewProtocol: AnyObject {
     func showEmptyState()
     func showFavorites(_ leagues: [League])
     func deleteRow(at index: Int)
-    func navigateToLeagueDetails(with league: League , sport:SportsHome)
+    func navigateToLeagueDetails(with league: League , sport:Sport)
 }
 
 protocol FavoritesPresenterProtocol: AnyObject {

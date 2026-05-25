@@ -1,0 +1,30 @@
+# Xcode
+DerivedData/
+build/
+
+# Ignore Xcode user-specific files
+xcuserdata/
+*.xcuserstate
+*.xcbkptlist
+
+# macOS
+.DS_Store
+
+# API Config
+Config.xcconfig
+
+# Swift Package Manager
+.build/
+
+# CocoaPods
+Pods/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+
+# Firebase
+GoogleService-Info.plist
+# Ignore Config file
+Sportify/Config.xcconfig

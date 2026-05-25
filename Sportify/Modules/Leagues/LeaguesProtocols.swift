@@ -8,11 +8,11 @@
 protocol LeaguesViewProtocol: AnyObject {
     func showLeagues(_ leagues: [League])
     func showError(_ message: String)
-    func navigateToLeagueDetails(with league: League , sport : SportsHome)
+    func navigateToLeagueDetails(with league: League , sport : Sport)
 }
 
 protocol LeaguesPresenterProtocol: AnyObject {
-    var selectedSport: SportsHome? { get set }
+    var selectedSport: Sport? { get set }
     func viewDidLoad()
     func didSelectLeague(at index: Int)
 }

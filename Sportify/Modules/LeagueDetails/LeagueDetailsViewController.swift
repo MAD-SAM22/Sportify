@@ -41,7 +41,7 @@ class LeagueDetailsViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        title = selectedLeague?.name ?? "League Details"
+        title = selectedLeague?.leagueName ?? "League Details"
 
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -82,7 +82,7 @@ extension LeagueDetailsViewController: LeagueDetailsViewProtocol {
 
                 // Pass real data fetched via the presenter
                 teamVC.selectedTeam = team
-                teamVC.sport = team.sport // Dynamic handling based on selection
+                teamVC.sport = team.teamName ?? ""// Dynamic handling based on selection
 
                 navigationController?.pushViewController(teamVC, animated: true)
             }
