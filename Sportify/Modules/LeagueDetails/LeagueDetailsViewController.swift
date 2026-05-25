@@ -233,6 +233,7 @@ extension LeagueDetailsViewController: UICollectionViewDataSource {
                 as! TeamCollectionViewCell
             cell.teamNameLabel.text = "Team \(indexPath.row)"
             cell.teamLogoImageView.backgroundColor = .systemGray5
+            cell.teamLogoImageView.image = UIImage(named: "bayern_logo")
             return cell
 
         case 1:
