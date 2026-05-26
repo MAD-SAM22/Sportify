@@ -19,39 +19,29 @@ class LeaguesTableViewCell: UITableViewCell {
     }
 
     private func setupUI() {
-        // Cell background
         backgroundColor = .clear
-        selectionStyle = .none
-        contentView.backgroundColor = UIColor(red: 0.10, green: 0.13, blue: 0.25, alpha: 1)
-        contentView.layer.cornerRadius = 14
-        contentView.layer.masksToBounds = true
 
-        // Circular image
-        leagueImage.layer.cornerRadius = 25
-        leagueImage.layer.masksToBounds = true
-        leagueImage.contentMode = .scaleAspectFill
-        leagueImage.layer.borderWidth = 1.5
-        leagueImage.layer.borderColor = UIColor.white.withAlphaComponent(0.15).cgColor
-
+ 
         // Label
-        leagueName.textColor = .white
-        leagueName.font = UIFont.boldSystemFont(ofSize: 16)
         leagueName.numberOfLines = 1
 
-        // Chevron inside the card
-        chevronImageView.image = UIImage(systemName: "chevron.right")
-        chevronImageView.tintColor = UIColor.white.withAlphaComponent(0.4)
-        chevronImageView.contentMode = .scaleAspectFit
 
-        accessoryView = nil
-        accessoryType = .none
+
+        // Configure the shadow on the contentView
+        contentView.layer.masksToBounds = false // Crucial: Allows the shadow to bleed outside the view
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOpacity = 0.4 // The darkness of the shadow (0.0 to 1.0)
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 4) // Pushes the shadow 4 points down
+        contentView.layer.shadowRadius = 5 // The blur amount
+        
+ 
     }
 
     // Card spacing between rows
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(
-            top: 6, left: 12, bottom: 6, right: 12
+            top: 0, left: 0, bottom: 10, right: 0
         ))
     }
 }
