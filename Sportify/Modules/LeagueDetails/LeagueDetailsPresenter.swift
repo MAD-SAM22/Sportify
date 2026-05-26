@@ -83,16 +83,20 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
             guard index >= 0 && index < totalTeams else { return }
             
             // Create dynamic dummy data based on the tapped item index
-            let mockTeam = Team(
-                name:        "Team \(index)",
-                country:     "Germany",
-                stadium:     "Allianz Arena",
-                founded:     "1900",
-                about:       "A powerhouse competitor within this tournament circuit...",
-                bannerImage: "team_banner",
-                logoImage:   "bayern_logo",
-                sport:       "Soccer"
-            )
+        let mockTeam = Team(
+            
+            teamKey: index,
+            
+            teamName: "Team \(index)",
+            
+            teamLogo: "bayern_logo",
+            
+            teamCountry: "Germany",
+            
+            teamFounded: "1900",
+            
+            venueName: "Allianz Arena"
+        )
 
             // Tell the view to perform the segue presentation transition
             view?.navigateToTeamDetails(with: mockTeam)
