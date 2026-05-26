@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6FE69F752FC62BB500083C4F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6FE69F742FC62BB500083C4F /* Alamofire */; };
 		D4A21FC32FC071C200998E91 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D4A21FC22FC071C200998E91 /* SDWebImage */; };
 		D4A21FC52FC071C200998E91 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D4A21FC42FC071C200998E91 /* SDWebImageMapKit */; };
 		D4A21FC82FC071D300998E91 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = D4A21FC72FC071D300998E91 /* Reachability */; };
 		D4A21FCB2FC071E500998E91 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = D4A21FCA2FC071E500998E91 /* SkeletonView */; };
 		D4A21FD32FC0728B00998E91 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D4A21FD22FC0728B00998E91 /* Kingfisher */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6FE69F792FC62CCC00083C4F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6F301BCB2FBCBE4D004727A8 /* Sportify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sportify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +61,7 @@
 				D4A21FD32FC0728B00998E91 /* Kingfisher in Frameworks */,
 				D4A21FCB2FC071E500998E91 /* SkeletonView in Frameworks */,
 				D4A21FC52FC071C200998E91 /* SDWebImageMapKit in Frameworks */,
+				6FE69F752FC62BB500083C4F /* Alamofire in Frameworks */,
 				D4A21FC82FC071D300998E91 /* Reachability in Frameworks */,
 				D4A21FC32FC071C200998E91 /* SDWebImage in Frameworks */,
 			);
@@ -81,6 +96,7 @@
 				6F301BC72FBCBE4D004727A8 /* Sources */,
 				6F301BC82FBCBE4D004727A8 /* Frameworks */,
 				6F301BC92FBCBE4D004727A8 /* Resources */,
+				6FE69F792FC62CCC00083C4F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +112,7 @@
 				D4A21FC72FC071D300998E91 /* Reachability */,
 				D4A21FCA2FC071E500998E91 /* SkeletonView */,
 				D4A21FD22FC0728B00998E91 /* Kingfisher */,
+				6FE69F742FC62BB500083C4F /* Alamofire */,
 			);
 			productName = Sportify;
 			productReference = 6F301BCB2FBCBE4D004727A8 /* Sportify.app */;
@@ -130,6 +147,7 @@
 				D4A21FC62FC071D300998E91 /* XCRemoteSwiftPackageReference "Reachability" */,
 				D4A21FC92FC071E500998E91 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				D4A21FD12FC0728B00998E91 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				6FE69F732FC62BB500083C4F /* XCRemoteSwiftPackageReference "alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6F301BCC2FBCBE4D004727A8 /* Products */;
@@ -381,6 +399,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6FE69F732FC62BB500083C4F /* XCRemoteSwiftPackageReference "alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alamofire/alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.12.0;
+			};
+		};
 		D4A21FC12FC071C200998E91 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -416,6 +442,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6FE69F742FC62BB500083C4F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6FE69F732FC62BB500083C4F /* XCRemoteSwiftPackageReference "alamofire" */;
+			productName = Alamofire;
+		};
 		D4A21FC22FC071C200998E91 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D4A21FC12FC071C200998E91 /* XCRemoteSwiftPackageReference "SDWebImage" */;
