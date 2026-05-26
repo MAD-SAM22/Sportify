@@ -198,84 +198,116 @@
         </scene>
         <!--Leagues View Controller-->
         <scene sceneID="bmn-Wp-gu3">
-            <objects>
-                <viewController storyboardIdentifier="LeaguesViewController" id="Iwf-PF-Rh9" customClass="LeaguesViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MiR-oa-cr6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k9Q-n4-Oni">
-                                <rect key="frame" x="8" y="89" width="376" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="HXG-hw-wf2"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.085964210329999999" green="0.10124885290000001" blue="0.15218469500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Iwf-PF-Rh9" id="Eob-e2-LDA"/>
-                                </connections>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ky4-DY-rFs">
-                                <rect key="frame" x="16" y="172" width="361" height="612"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.08235294118" green="0.1019607843" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LeaguesCell" id="CZM-rH-i47" customClass="LeaguesTableViewCell" customModule="Sportify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="361" height="53"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CZM-rH-i47" id="6hf-fy-cwv">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="53"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0D-1Q-keK">
-                                                    <rect key="frame" x="16" y="1.6666666666666679" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0j-AL-ZPD">
-                                                    <rect key="frame" x="78" y="12" width="243" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="98n-qu-HZe">
-                                                    <rect key="frame" x="298" y="10" width="43" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
+                    <objects>
+                        <viewController storyboardIdentifier="LeaguesViewController" id="Iwf-PF-Rh9" customClass="LeaguesViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
+                            <view key="view" contentMode="scaleToFill" id="MiR-oa-cr6">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k9Q-n4-Oni">
+                                        <rect key="frame" x="8" y="89" width="376" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="HXG-hw-wf2"/>
+                                        </constraints>
+                                        <color key="barTintColor" red="0.08235294118" green="0.1019607843" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <outlet property="chevronImageView" destination="98n-qu-HZe" id="Bm0-6w-8ZG"/>
-                                            <outlet property="leagueImage" destination="J0D-1Q-keK" id="ZVA-Oq-GmX"/>
-                                            <outlet property="leagueName" destination="l0j-AL-ZPD" id="0wz-8d-WGM"/>
+                                            <outlet property="delegate" destination="Iwf-PF-Rh9" id="Eob-e2-LDA"/>
                                         </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="F9K-xo-cWN"/>
-                        <color key="backgroundColor" red="0.082352941176470587" green="0.10196078431372549" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="F9K-xo-cWN" firstAttribute="top" secondItem="k9Q-n4-Oni" secondAttribute="top" id="8Cd-lg-dee"/>
-                            <constraint firstItem="ky4-DY-rFs" firstAttribute="trailing" secondItem="MiR-oa-cr6" secondAttribute="trailingMargin" id="GYC-34-ti5"/>
-                            <constraint firstItem="k9Q-n4-Oni" firstAttribute="leading" secondItem="F9K-xo-cWN" secondAttribute="leading" constant="8" id="Ulc-Ac-ITQ"/>
-                            <constraint firstItem="ky4-DY-rFs" firstAttribute="bottom" secondItem="F9K-xo-cWN" secondAttribute="bottom" id="VmV-ry-6ok"/>
-                            <constraint firstItem="k9Q-n4-Oni" firstAttribute="top" secondItem="MiR-oa-cr6" secondAttribute="topMargin" id="dyW-VZ-ZlM"/>
-                            <constraint firstItem="ky4-DY-rFs" firstAttribute="top" secondItem="k9Q-n4-Oni" secondAttribute="bottom" constant="10" id="f62-kH-1Ck"/>
-                            <constraint firstItem="ky4-DY-rFs" firstAttribute="leading" secondItem="MiR-oa-cr6" secondAttribute="leadingMargin" id="uCj-wM-uGL"/>
-                            <constraint firstItem="k9Q-n4-Oni" firstAttribute="centerX" secondItem="ky4-DY-rFs" secondAttribute="centerX" id="ytf-tu-fi7"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="ky4-DY-rFs" id="39Z-Ad-WlF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Qc-pZ-xF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3092" y="-344"/>
-        </scene>
+                                    </searchBar>
+                                    
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ky4-DY-rFs">
+                                        <rect key="frame" x="16" y="153" width="361" height="631"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LeaguesCell" id="CZM-rH-i47" customClass="LeaguesTableViewCell" customModule="Sportify" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="361" height="80"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CZM-rH-i47" id="6hf-fy-cwv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J0D-1Q-keK">
+                                                            <rect key="frame" x="16" y="15" width="50" height="50"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="img-w"/>
+                                                                <constraint firstAttribute="height" constant="50" id="img-h"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="25"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0j-AL-ZPD">
+                                                            <rect key="frame" x="82" y="29.666666666666671" width="233" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="98n-qu-HZe">
+                                                            <rect key="frame" x="331" y="32" width="14" height="16.333333333333332"/>
+                                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="14" id="chev-w"/>
+                                                                <constraint firstAttribute="height" constant="20" id="chev-h"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    
+                                                    <constraints>
+                                                        <constraint firstItem="J0D-1Q-keK" firstAttribute="leading" secondItem="6hf-fy-cwv" secondAttribute="leading" constant="16" id="CnL-Jg-1"/>
+                                                        <constraint firstItem="J0D-1Q-keK" firstAttribute="centerY" secondItem="6hf-fy-cwv" secondAttribute="centerY" id="CnL-Jg-2"/>
+                                                        
+                                                        <constraint firstAttribute="trailing" secondItem="98n-qu-HZe" secondAttribute="trailing" constant="16" id="CnL-Jg-3"/>
+                                                        <constraint firstItem="98n-qu-HZe" firstAttribute="centerY" secondItem="6hf-fy-cwv" secondAttribute="centerY" id="CnL-Jg-4"/>
+                                                        
+                                                        <constraint firstItem="l0j-AL-ZPD" firstAttribute="leading" secondItem="J0D-1Q-keK" secondAttribute="trailing" constant="16" id="CnL-Jg-5"/>
+                                                        <constraint firstItem="98n-qu-HZe" firstAttribute="leading" secondItem="l0j-AL-ZPD" secondAttribute="trailing" constant="16" id="CnL-Jg-6"/>
+                                                        <constraint firstItem="l0j-AL-ZPD" firstAttribute="centerY" secondItem="6hf-fy-cwv" secondAttribute="centerY" id="CnL-Jg-7"/>
+                                                    </constraints>
+                                                    
+                                                    <color key="backgroundColor" red="0.10980392156862745" green="0.16078431372549018" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="chevronImageView" destination="98n-qu-HZe" id="Bm0-6w-8ZG"/>
+                                                    <outlet property="leagueImage" destination="J0D-1Q-keK" id="ZVA-Oq-GmX"/>
+                                                    <outlet property="leagueName" destination="l0j-AL-ZPD" id="0wz-8d-WGM"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="F9K-xo-cWN"/>
+                                <color key="backgroundColor" red="0.082352941176470587" green="0.10196078431372549" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="k9Q-n4-Oni" firstAttribute="top" secondItem="F9K-xo-cWN" secondAttribute="top" id="dyW-VZ-ZlM"/>
+                                    <constraint firstItem="k9Q-n4-Oni" firstAttribute="leading" secondItem="F9K-xo-cWN" secondAttribute="leading" constant="8" id="Ulc-Ac-ITQ"/>
+                                    <constraint firstItem="F9K-xo-cWN" firstAttribute="trailing" secondItem="k9Q-n4-Oni" secondAttribute="trailing" constant="8" id="ytf-tu-fi7"/>
+                                    
+                                    <constraint firstItem="ky4-DY-rFs" firstAttribute="top" secondItem="k9Q-n4-Oni" secondAttribute="bottom" constant="20" id="f62-kH-1Ck"/>
+                                    <constraint firstItem="ky4-DY-rFs" firstAttribute="leading" secondItem="F9K-xo-cWN" secondAttribute="leading" constant="16" id="uCj-wM-uGL"/>
+                                    <constraint firstItem="F9K-xo-cWN" firstAttribute="trailing" secondItem="ky4-DY-rFs" secondAttribute="trailing" constant="16" id="GYC-34-ti5"/>
+                                    <constraint firstItem="F9K-xo-cWN" firstAttribute="bottom" secondItem="ky4-DY-rFs" secondAttribute="bottom" constant="34" id="VmV-ry-6ok"/>
+                                </constraints>
+                            </view>
+                            <connections>
+                                <outlet property="tableView" destination="ky4-DY-rFs" id="39Z-Ad-WlF"/>
+                            </connections>
+                        </viewController>
+                        <placeholder placeholderIdentifier="IBFirstResponder" id="0Qc-pZ-xF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </objects>
+                    <point key="canvasLocation" x="3092" y="-344"/>
+                </scene>
         <!--League Details View Controller-->
         <scene sceneID="HjQ-eK-Gu2">
             <objects>
@@ -626,13 +658,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.79607843140000001" green="0.18823529410000001" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.79607843137254897" green="0.18823529411764706" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.21960784310000001" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.2196078431372549" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
