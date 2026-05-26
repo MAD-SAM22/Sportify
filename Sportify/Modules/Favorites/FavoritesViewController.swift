@@ -33,20 +33,7 @@ class FavoritesViewController: UIViewController {
     // MARK: - Setup
     private func setupUI() {
         title = "Favorites"
-        view.backgroundColor = UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
-
-        // Style empty state labels (or do this in Storyboard)
-        emptyTitleLabel.text = "No favorites yet"
-        emptyTitleLabel.textColor = .white
-        emptyTitleLabel.font = UIFont.boldSystemFont(ofSize: 22)
-
         emptySubtitleLabel.text = "Tap the heart icon on any league\nto save it here for quick access."
-        emptySubtitleLabel.textColor = UIColor.white.withAlphaComponent(0.5)
-        emptySubtitleLabel.numberOfLines = 2
-
-        emptyImageView.image = UIImage(systemName: "heart.slash.circle")
-        emptyImageView.tintColor = UIColor.white.withAlphaComponent(0.3)
-        emptyImageView.contentMode = .scaleAspectFit
     }
 
     private func setupTableView() {
