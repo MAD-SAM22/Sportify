@@ -82,7 +82,7 @@ extension LeagueDetailsViewController: LeagueDetailsViewProtocol {
 
                 // Pass real data fetched via the presenter
                 teamVC.selectedTeam = team
-                teamVC.sport = team.teamName ?? ""// Dynamic handling based on selection
+                teamVC.sport = "soccer"
 
                 navigationController?.pushViewController(teamVC, animated: true)
             }

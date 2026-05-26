@@ -19,7 +19,7 @@ class TeamDetailsViewController: UIViewController {
     
     var selectedTeam: Team?
     
-    var sport: String = "Soccer"
+    var sport: String = "soccer"
 
     // NIB Views
     
@@ -125,6 +125,9 @@ class TeamDetailsViewController: UIViewController {
         
         addPlayersView()
 
+        print("DEBUG sport value: '\(sport)'")
+        print("DEBUG shouldShowLineup: \(shouldShowLineup(for: sport))")
+        
         // ✅ Only show lineup for team sports
         if shouldShowLineup(for: sport) {
             
@@ -214,54 +217,36 @@ class TeamDetailsViewController: UIViewController {
     }
 
     private func addLineupView() {
-        
+        // 1. Load the view from the bundle
         lineupView = TeamLineupView.loadFromNib()
         
+        // 2. Disable resizing masks so Auto Layout can take over
+        lineupView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // 4. Configure the subviews now that layout rules are bound
         lineupView.configure(
             formation: [
-                
                 ["Goalkeeper"],
-                
-                [
-                    "Defender",
-                    "Defender",
-                    "Defender",
-                    "Defender"
-                ],
-                
-                [
-                    "Midfielder",
-                    "Midfielder",
-                    "Midfielder"
-                ],
-                
-                [
-                    "Forward",
-                    "Forward",
-                    "Forward"
-                ]
+                ["Defender", "Defender", "Defender", "Defender"],
+                ["Midfielder", "Midfielder", "Midfielder"],
+                ["Forward", "Forward", "Forward"]
             ],
-            
             playerImages: []
         )
         
+        // 3. Add it to the content stack first so it enters the layout hierarchy
         contentStackView.addArrangedSubview(lineupView)
+        
+        //give the stack view a concrete height to work with
+            lineupView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        
+
     }
 
     // MARK: - Lineup Visibility Logic
     
-    private func shouldShowLineup(
-        for sport: String
-    ) -> Bool {
-        
-        let teamSports = [
-            "Soccer",
-            "Football",
-            "Basketball",
-            "Baseball",
-            "Hockey"
-        ]
-        
-        return teamSports.contains(sport)
+    private func shouldShowLineup(for sport: String) -> Bool {
+        let teamSports = ["soccer", "football", "basketball", "baseball", "hockey"]
+        return teamSports.contains(sport.lowercased())
     }
 }

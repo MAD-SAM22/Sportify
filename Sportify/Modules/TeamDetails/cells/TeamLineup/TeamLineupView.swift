@@ -28,6 +28,8 @@ class TeamLineupView: UIView {
         titleLabel.textColor = .white
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
 
+        
+        
         // Green pitch background
         pitchView.backgroundColor = UIColor(red: 0.13, green: 0.55, blue: 0.13, alpha: 1)
         pitchView.layer.cornerRadius = 16
@@ -46,7 +48,7 @@ class TeamLineupView: UIView {
             rowStack.distribution = .equalSpacing
             rowStack.alignment = .center
             rowStack.spacing = 8
-
+            
             for name in row {
                 let playerView = createPlayerDot(name: name,
                     image: playerIndex < playerImages.count ? playerImages[playerIndex] : nil)
