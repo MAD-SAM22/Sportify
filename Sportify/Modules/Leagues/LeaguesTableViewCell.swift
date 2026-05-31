@@ -9,7 +9,7 @@
 
 import UIKit
 import Kingfisher
-
+import SkeletonView
 class LeaguesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var leagueImage: UIImageView!
@@ -19,6 +19,7 @@ class LeaguesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        setupSkeleton()
     }
 
     private func setupUI() {
@@ -34,21 +35,34 @@ class LeaguesTableViewCell: UITableViewCell {
         contentView.layer.shadowRadius = 5
     }
 
-    // Calls from cellForRowAt
-    func configure(with league: League) {
-        leagueName.text = league.leagueName ?? "Unknown League"
-
-        let placeholder = UIImage(systemName: "shield.fill")
-
-        guard let urlString = league.leagueLogo,
-              !urlString.isEmpty,
-              let url = URL(string: urlString) else {
-            leagueImage.image = placeholder
-            return
+    private func setupSkeleton() {
+            self.isSkeletonable = true
+            contentView.isSkeletonable = true
+            leagueImage.isSkeletonable = true
+            leagueName.isSkeletonable = true
+            chevronImageView.isSkeletonable = true
+            
+            // Optimize the label
+            leagueName.skeletonTextNumberOfLines = 1
         }
 
-        leagueImage.kf.setImage(with: url, placeholder: placeholder)
-    }
+        // Update your existing configure(with:) method
+        func configure(with league: League) {
+            
+            leagueName.text = league.leagueName ?? "Unknown League"
+
+            let placeholder = UIImage(systemName: "shield.fill")
+
+            guard let urlString = league.leagueLogo,
+                  !urlString.isEmpty,
+                  let url = URL(string: urlString) else {
+                leagueImage.image = placeholder
+                return
+            }
+
+            leagueImage.kf.indicatorType = .activity
+            leagueImage.kf.setImage(with: url, placeholder: placeholder)
+        }
     
     //card spacing between rows
     override func layoutSubviews() {

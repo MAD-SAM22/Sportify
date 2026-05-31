@@ -5,6 +5,8 @@
 //  Created by Mina_Wagdy on 22/05/2026.
 //
 
+import Kingfisher
+import SkeletonView
 import UIKit
 
 class LeagueDetailsViewController: UIViewController {
@@ -13,14 +15,14 @@ class LeagueDetailsViewController: UIViewController {
     @IBOutlet weak var favoriteBarButtonItem: UIBarButtonItem!
     var presenter: LeagueDetailsPresenterProtocol!
     var selectedLeague: League?
-    var selectedSport:Sport?
+    var selectedSport: Sport?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Initialize the presenter and inject the view (self)
         presenter = LeagueDetailsPresenter(view: self)
-        presenter.selectedLeague=selectedLeague
-        presenter.selectedSport  = selectedSport
+        presenter.selectedLeague = selectedLeague
+        presenter.selectedSport = selectedSport
         setupNavigationBar()
 
         setupCollectionView()
@@ -39,16 +41,17 @@ class LeagueDetailsViewController: UIViewController {
         // Immediately delegate the action to the Presenter
         presenter.didTapFavorite()
     }
-    
+
     private func setupNavigationBar() {
         title = selectedLeague?.leagueName ?? "League Details"
 
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
+        appearance.backgroundColor = UIColor(
+            red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
         appearance.titleTextAttributes = [
             .foregroundColor: UIColor.white,
-            .font: UIFont.boldSystemFont(ofSize: 20)
+            .font: UIFont.boldSystemFont(ofSize: 20),
         ]
 
         navigationController?.navigationBar.standardAppearance = appearance
@@ -66,30 +69,29 @@ extension LeagueDetailsViewController: LeagueDetailsViewProtocol {
             self.favoriteBarButtonItem.image = UIImage(systemName: iconName)
         }
     }
-    
+
     func reloadData() {
         // Ensure UI updates happen on the main thread
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
     }
-    
+
     func navigateToTeamDetails(with team: Team) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let teamVC = storyboard.instantiateViewController(
-                withIdentifier: "TeamDetailsViewController"
-            ) as? TeamDetailsViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let teamVC = storyboard.instantiateViewController(
+            withIdentifier: "TeamDetailsViewController"
+        ) as? TeamDetailsViewController {
 
-                // Pass real data fetched via the presenter
-                teamVC.selectedTeam = team
-                teamVC.sport = selectedSport?.sportName ?? "soccer"
+            // Pass real data fetched via the presenter
+            teamVC.selectedTeam = team
+            teamVC.sport = selectedSport?.sportName ?? "soccer"
 
-                navigationController?.pushViewController(teamVC, animated: true)
-            }
+            navigationController?.pushViewController(teamVC, animated: true)
         }
     }
-    
-   
+}
+
 // MARK: - UI Setup & Compositional Layout
 extension LeagueDetailsViewController {
 
@@ -223,17 +225,28 @@ extension LeagueDetailsViewController {
 }
 // MARK: - UICollectionView DataSource
 extension LeagueDetailsViewController: UICollectionViewDataSource {
-
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3  // Teams, Tabs, Games
+        return 3
     }
 
     func collectionView(
         _ collectionView: UICollectionView, numberOfItemsInSection section: Int
     ) -> Int {
+        // 1. If we are fetching data, return dummy counts for the skeletons
+        if presenter.isLoading {
+            switch section {
+            case 0: return 5  // Show 5 skeleton teams
+            case 1: return 2  // Tabs remain real
+            case 2: return 5  // Show 5 skeleton games
+            default: return 0
+            }
+        }
+
+        // 2. Otherwise, return the real counts
         switch section {
         case 0: return presenter.getTeamsCount()
-        case 1: return 2  // Always 2 tabs (Recent, Upcoming)
+        case 1: return 2
         case 2: return presenter.getGamesCount()
         default: return 0
         }
@@ -248,19 +261,40 @@ extension LeagueDetailsViewController: UICollectionViewDataSource {
                 collectionView.dequeueReusableCell(
                     withReuseIdentifier: "TeamCell", for: indexPath)
                 as! TeamCollectionViewCell
-            cell.teamNameLabel.text = "Team \(indexPath.row)"
-            cell.teamLogoImageView.backgroundColor = .systemGray5
-            cell.teamLogoImageView.image = UIImage(named: "bayern_logo")
+
+            if presenter.isLoading {
+                // Show SkeletonView
+                cell.showAnimatedGradientSkeleton()
+            } else {
+                // Hide SkeletonView before assigning real data
+                cell.hideSkeleton()
+
+                if let team = presenter.getTeam(at: indexPath.row) {
+                    cell.teamNameLabel.text = team.teamName ?? "Unknown"
+                    if let logoString = team.teamLogo,
+                        let url = URL(string: logoString)
+                    {
+                        cell.teamLogoImageView.kf.indicatorType = .activity
+                        cell.teamLogoImageView.kf.setImage(
+                            with: url,
+                            placeholder: UIImage(
+                                systemName: "photo.circle.fill"))
+                    } else {
+                        cell.teamLogoImageView.image = UIImage(
+                            systemName: "photo.circle.fill")
+                    }
+                }
+            }
             return cell
 
         case 1:
+            // Tabs don't need skeleton loaders
             let cell =
                 collectionView.dequeueReusableCell(
                     withReuseIdentifier: "TabControlCell", for: indexPath)
                 as! TabControlCollectionViewCell
             cell.configure(title: indexPath.row == 0 ? "Recent" : "Upcoming")
 
-            // Ask the presenter which tab is currently selected
             if indexPath.row == presenter.getSelectedTabIndex() {
                 collectionView.selectItem(
                     at: indexPath, animated: false, scrollPosition: [])
@@ -273,17 +307,27 @@ extension LeagueDetailsViewController: UICollectionViewDataSource {
                     withReuseIdentifier: GameCollectionViewCell.identifier,
                     for: indexPath) as! GameCollectionViewCell
 
-            // Ask the presenter for the current match state based on the selected tab
-            let matchState = presenter.getCurrentMatchState()
+            if presenter.isLoading {
+                // Show SkeletonView
+                cell.showAnimatedGradientSkeleton()
+            } else {
+                // Hide SkeletonView before assigning real data
+                cell.hideSkeleton()
 
-            cell.configure(
-                homeName: "Home Team",
-                homeImageURL: "person.circle",
-                awayName: "Away Team",
-                awayImageURL: "person.circle",
-                date: "2026-05-22",
-                time: "20:00",
-                state: matchState)
+                if let game = presenter.getGame(at: indexPath.row) {
+                    let matchState = presenter.getCurrentMatchState(
+                        for: indexPath.row)
+                    cell.configure(
+                        homeName: game.eventHomeTeam ?? "Home",
+                        homeImageURL: game.homeTeamLogo ?? "",
+                        awayName: game.eventAwayTeam ?? "Away",
+                        awayImageURL: game.awayTeamLogo ?? "",
+                        date: game.eventDate ?? "",
+                        time: game.eventTime ?? "",
+                        state: matchState
+                    )
+                }
+            }
             return cell
 
         default:
@@ -298,16 +342,16 @@ extension LeagueDetailsViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath
     ) {
         switch indexPath.section {
-                case 0:
-                    //  1. When a team in Section 0 is tapped, notify the presenter
-                    presenter.didSelectTeam(at: indexPath.row)
-                    
-                case 1:
-                    // Tell the presenter the user tapped a tab
-                    presenter.didSelectTab(index: indexPath.row)
-                    
-                default:
-                    break
-                }
+        case 0:
+            //  1. When a team in Section 0 is tapped, notify the presenter
+            presenter.didSelectTeam(at: indexPath.row)
+
+        case 1:
+            // Tell the presenter the user tapped a tab
+            presenter.didSelectTab(index: indexPath.row)
+
+        default:
+            break
+        }
     }
 }

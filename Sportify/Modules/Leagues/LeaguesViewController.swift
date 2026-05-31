@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SkeletonView
 class LeaguesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -74,21 +74,34 @@ extension LeaguesViewController: LeaguesViewProtocol {
     }
 }
 
-extension LeaguesViewController: UITableViewDataSource , UITableViewDelegate{
+extension LeaguesViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leagues.count
+        // Show 6 dummy cells while loading, otherwise real count
+        return presenter.isLoading ? 6 : leagues.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeaguesCell", for: indexPath) as! LeaguesTableViewCell
-        cell.configure(with: leagues[indexPath.row])
+        
+        if presenter.isLoading {
+            // 1. Trigger the official library animation
+            cell.showAnimatedGradientSkeleton()
+        } else {
+            // 2. Hide the skeleton layer and push the real data
+            cell.hideSkeleton()
+            cell.configure(with: leagues[indexPath.row])
+        }
+        
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        // Prevent crashes by ignoring taps on skeleton cells
+        guard !presenter.isLoading else { return }
+        
         presenter.didSelectLeague(at: indexPath.row)
     }
 }

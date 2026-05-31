@@ -7,7 +7,7 @@
 
 import UIKit
 import SkeletonView
-
+import Kingfisher
 // Using an enum for state management keeps the code clean and avoids boolean toggles
 enum MatchState {
     case recent(score: String)
@@ -45,34 +45,36 @@ class GameCollectionViewCell: UICollectionViewCell {
         awayTeamImageView.contentMode = .scaleAspectFit
     }
 
+        
         func configure(homeName: String, homeImageURL: String, awayName: String, awayImageURL: String, date: String, time: String, state: MatchState) {
+            
             homeTeamNameLabel.text = homeName
             awayTeamNameLabel.text = awayName
             dateLabel.text = date
             timeLabel.text = time
             
-            // For our current static data phase:
-            homeTeamImageView.image = UIImage(named: "bayern_logo")
-            awayTeamImageView.image = UIImage(named: "bayern_logo")
+            // Setup Home Image
+            if let homeUrl = URL(string: homeImageURL) {
+                homeTeamImageView.kf.indicatorType = .activity
+                homeTeamImageView.kf.setImage(with: homeUrl, placeholder: UIImage(systemName: "shield"))
+            }
             
-            /* Later, when we hook up the API and use Alamofire/Kingfisher,
-            you will swap the two lines above for something like:
+            // Setup Away Image
+            if let awayUrl = URL(string: awayImageURL) {
+                awayTeamImageView.kf.indicatorType = .activity
+                awayTeamImageView.kf.setImage(with: awayUrl, placeholder: UIImage(systemName: "shield"))
+            }
             
-            let homeUrl = URL(string: homeImageName)
-            homeTeamImageView.kf.setImage(with: homeUrl)
-            */
-            
+            // Handle MatchState UI (Score vs VS label, etc.)
             switch state {
             case .recent(let score):
                 scoreOrVsLabel.text = score
-                matchStatusLabel.text = "FT"
-                matchStatusLabel.isHidden = false
+                scoreOrVsLabel.isHidden = false
             case .upcoming:
                 scoreOrVsLabel.text = "VS"
-                matchStatusLabel.isHidden = true
+                scoreOrVsLabel.isHidden = false
             }
         }
-
     private func setupSkeleton() {
         self.isSkeletonable = true
         cardBackgroundView.isSkeletonable = true
