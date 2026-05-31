@@ -13,6 +13,7 @@ class TeamDetailsPresenter: TeamDetailsPresenterProtocol {
     weak var view: TeamDetailsViewProtocol?
     var selectedTeam: Team?
     var sport: String = "soccer"
+    var isLoading: Bool = true
 
     // MARK: - Init
     init(view: TeamDetailsViewProtocol) {
@@ -35,33 +36,43 @@ class TeamDetailsPresenter: TeamDetailsPresenterProtocol {
 
         // Fetch full team details from API if we have a teamKey
         guard let teamKey = team.teamKey else { return }
+        // Trigger loading state for the deep-dive data (Players, Stadium, etc.)
+        self.isLoading = true
+        view?.showLoadingState()
 
         NetworkManager.shared.fetchTeamDetails(
             teamId: teamKey,
             sport: sport
         ) { [weak self] result in
-            switch result {
-            case .success(let fullTeam):
-                self?.selectedTeam = fullTeam
-                self?.view?.showTeamDetails(fullTeam)
-                self?.view?.showPlayers(fullTeam.players ?? [])
-            case .failure(let error):
-                self?.view?.showError(error.localizedDescription)
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                self?.view?.hideLoadingState()  // Turn off skeletons
+
+                switch result {
+                case .success(let fullTeam):
+                    self?.selectedTeam = fullTeam
+                    self?.view?.showTeamDetails(fullTeam)
+                    self?.view?.showPlayers(fullTeam.players ?? [])
+                case .failure(let error):
+                    self?.view?.showError(error.localizedDescription)
+                }
             }
         }
     }
 
     func shouldShowLineup() -> Bool {
-        let teamSports = ["soccer", "football", "basketball", "baseball", "hockey"]
+        let teamSports = [
+            "soccer", "football", "basketball", "baseball", "hockey",
+        ]
         return teamSports.contains(sport.lowercased())
     }
 
     func getFormation() -> [[String]] {
         return [
             ["Goalkeeper"],
-            ["Defender",   "Defender",   "Defender",   "Defender"],
+            ["Defender", "Defender", "Defender", "Defender"],
             ["Midfielder", "Midfielder", "Midfielder"],
-            ["Forward",    "Forward",    "Forward"]
+            ["Forward", "Forward", "Forward"],
         ]
     }
 }

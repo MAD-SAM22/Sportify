@@ -11,6 +11,8 @@ protocol TeamDetailsViewProtocol: AnyObject {
     func showPlayers(_ players: [Player])
     func showLineup(show: Bool)
     func showError(_ message: String)
+    func showLoadingState()
+    func hideLoadingState()
 }
 
 protocol TeamDetailsPresenterProtocol: AnyObject {

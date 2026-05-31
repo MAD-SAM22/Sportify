@@ -7,8 +7,9 @@
 //  TeamDetailsViewController.swift
 //  Sportify
 
-import UIKit
 import Kingfisher
+import SkeletonView
+import UIKit
 
 class TeamDetailsViewController: UIViewController {
 
@@ -47,7 +48,8 @@ class TeamDetailsViewController: UIViewController {
 
     // MARK: - Setup
     private func setupUI() {
-        view.backgroundColor = UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
+        view.backgroundColor = UIColor(
+            red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
         scrollView.backgroundColor = .clear
         scrollView.showsVerticalScrollIndicator = false
         contentStackView.axis = .vertical
@@ -60,10 +62,11 @@ class TeamDetailsViewController: UIViewController {
         title = selectedTeam?.teamName ?? "Team Details"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
+        appearance.backgroundColor = UIColor(
+            red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
         appearance.titleTextAttributes = [
             .foregroundColor: UIColor.white,
-            .font: UIFont.boldSystemFont(ofSize: 20)
+            .font: UIFont.boldSystemFont(ofSize: 20),
         ]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
@@ -113,6 +116,29 @@ class TeamDetailsViewController: UIViewController {
         lineup.heightAnchor.constraint(equalToConstant: 500).isActive = true
         lineupView = lineup
     }
+    // MARK: - Loading States
+    func showLoadingState() {
+        // Prep the empty stack view before triggering the animation
+        playersView?.setupDummySkeletonViews()
+
+        let viewsToAnimate: [UIView?] = [
+            headerView, infoCardsView, aboutView, playersView, lineupView,
+        ]
+
+        viewsToAnimate.forEach { view in
+            view?.showAnimatedGradientSkeleton()
+        }
+    }
+
+    func hideLoadingState() {
+        let viewsToAnimate: [UIView?] = [
+            headerView, infoCardsView, aboutView, playersView, lineupView,
+        ]
+
+        viewsToAnimate.forEach { view in
+            view?.hideSkeleton()
+        }
+    }
 }
 
 // MARK: - TeamDetailsViewProtocol
@@ -122,31 +148,33 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
         // Update title
         title = team.teamName ?? "Team Details"
 
-        // Header
+        // Header - Now passing the URL string directly!
         headerView.configure(
             teamName: team.teamName ?? "Team Name",
             bannerImage: UIImage(named: "team_banner"),
-            logoImage: loadTeamLogo(from: team.teamLogo)
+            logoURL: team.teamLogo
         )
 
         // Info cards
         infoCardsView.configure(
             country: team.teamCountry ?? "N/A",
-            stadium: team.venueName   ?? "N/A",
+            stadium: team.venueName ?? "N/A",
             founded: team.teamFounded ?? "N/A"
         )
 
-        // About — API doesn't return description so keep placeholder
+        // About - API doesn't provide, so keeping the placeholder
         aboutView.configure(
-            description: "A historic team from \(team.teamCountry ?? "unknown country"), founded in \(team.teamFounded ?? "N/A"), playing at \(team.venueName ?? "N/A")."
+            description:
+                "A historic team from \(team.teamCountry ?? "unknown country"), founded in \(team.teamFounded ?? "N/A"), playing at \(team.venueName ?? "N/A")."
         )
     }
 
     func showPlayers(_ players: [Player]) {
         // Map Player model to (name, image) tuples for the view
-        let playerTuples: [(name: String, image: UIImage?)] = players.map { player in
+        let playerTuples: [(name: String, image: UIImage?)] = players.map {
+            player in
             (
-                name:  player.playerName ?? "Player",
+                name: player.playerName ?? "Player",
                 image: nil  // Kingfisher loads async — handle inside TeamPlayersView
             )
         }
@@ -166,14 +194,9 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
     }
 
     func showError(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
-    }
-
-    // MARK: - Helper
-    private func loadTeamLogo(from urlString: String?) -> UIImage? {
-        // Return placeholder — Kingfisher handles async loading separately
-        return UIImage(named: urlString ?? "") ?? UIImage(systemName: "shield.fill")
     }
 }

@@ -5,6 +5,7 @@
 //  Created by Osama Hosam on 25/05/2026.
 //
 
+import SkeletonView
 import UIKit
 
 class TeamInfoCardsView: UIView {
@@ -20,23 +21,27 @@ class TeamInfoCardsView: UIView {
     @IBOutlet weak var foundedCard: UIView!
 
     static func loadFromNib() -> TeamInfoCardsView {
-        return Bundle.main.loadNibNamed("TeamInfoCardsView", owner: nil)![0] as! TeamInfoCardsView
+        return Bundle.main.loadNibNamed("TeamInfoCardsView", owner: nil)![0]
+            as! TeamInfoCardsView
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        setupSkeleton()
     }
 
     private func setupUI() {
         // Matches the premium #1F1F1F background look from your reference mockup
         [countryCard, stadiumCard, foundedCard].forEach { card in
-            card?.backgroundColor = UIColor(red: 0.12, green: 0.15, blue: 0.25, alpha: 1)
+            card?.backgroundColor = UIColor(
+                red: 0.12, green: 0.15, blue: 0.25, alpha: 1)
             card?.layer.cornerRadius = 16
             card?.layer.masksToBounds = true
         }
 
-        [countryValueLabel, stadiumValueLabel, foundedValueLabel].forEach { label in
+        [countryValueLabel, stadiumValueLabel, foundedValueLabel].forEach {
+            label in
             label?.textColor = .white
             label?.font = UIFont.boldSystemFont(ofSize: 16)
             label?.textAlignment = .center
@@ -44,9 +49,25 @@ class TeamInfoCardsView: UIView {
         }
 
         // Configures system SF Symbol tinting uniformly
-        [countryIconLabel, stadiumIconLabel, foundedIconLabel].forEach { iconView in
+        [countryIconLabel, stadiumIconLabel, foundedIconLabel].forEach {
+            iconView in
             iconView?.tintColor = .white
             iconView?.contentMode = .scaleAspectFit
+        }
+    }
+    private func setupSkeleton() {
+        self.isSkeletonable = true
+        let elements: [UIView?] = [
+            countryCard, stadiumCard, foundedCard,
+            countryIconLabel, stadiumIconLabel, foundedIconLabel,
+            countryValueLabel, stadiumValueLabel, foundedValueLabel,
+        ]
+
+        elements.forEach {
+            $0?.isSkeletonable = true
+            if let label = $0 as? UILabel {
+                label.skeletonTextNumberOfLines = 1
+            }
         }
     }
 

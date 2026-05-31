@@ -32,5 +32,10 @@ protocol LeagueDetailsPresenterProtocol {
     
     // State helpers
     func getSelectedTabIndex() -> Int
-    func getCurrentMatchState() -> MatchState
+    func getCurrentMatchState(for index: Int) -> MatchState
+    
+    func getTeam(at index: Int) -> Team?
+    func getGame(at index: Int) -> Event?
+    
+    var isLoading: Bool { get }
 }

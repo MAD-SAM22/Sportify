@@ -15,4 +15,5 @@ protocol LeaguesPresenterProtocol: AnyObject {
     var selectedSport: Sport? { get set }
     func viewDidLoad()
     func didSelectLeague(at index: Int)
+    var isLoading: Bool { get }
 }
