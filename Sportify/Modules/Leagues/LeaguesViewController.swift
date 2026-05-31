@@ -81,9 +81,7 @@ extension LeaguesViewController: UITableViewDataSource , UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeaguesCell", for: indexPath) as! LeaguesTableViewCell
-        let league = leagues[indexPath.row]
-        cell.leagueName.text = league.leagueName
-        cell.leagueImage.image = UIImage(named: league.leagueLogo ?? "")
+        cell.configure(with: leagues[indexPath.row])
         return cell
     }
     

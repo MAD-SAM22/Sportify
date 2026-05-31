@@ -4,31 +4,56 @@
 //
 //  Created by Osama Hosam on 22/05/2026.
 //
+//  APIConstants.swift
+//  Sportify
+
 import Foundation
 
-enum APIConstants {
+struct APIConstants {
 
-    static let apiKey: String = {
+    struct Method {
+        static let leagues   = "Leagues"
+        static let fixtures  = "Fixtures"
+        static let teams     = "Teams"
+    }
 
-        guard let key = Bundle.main.object(
-            forInfoDictionaryKey: "API_KEY"
-        ) as? String else {
+    struct Sport {
+        static let football         = "football"
+        static let basketball       = "basketball"
+        static let cricket          = "cricket"
+        static let tennis           = "tennis"
+        static let hockey           = "hockey"
+        static let baseball         = "baseball"
+        static let rugby            = "rugby"
+        static let americanFootball = "AmericanFootball"
+    }
 
-            fatalError("API_KEY not found")
+    static func endpoint(for sport: String) -> String {
+        switch sport.lowercased() {
+        case "soccer", "football":   return Sport.football
+        case "basketball":           return Sport.basketball
+        case "cricket":              return Sport.cricket
+        case "tennis":               return Sport.tennis
+        case "hockey":               return Sport.hockey
+        case "baseball":             return Sport.baseball
+        case "rugby":                return Sport.rugby
+        case "american football":    return Sport.americanFootball
+        default:                     return Sport.football
         }
+    }
+}
 
-        return key
-    }()
-
-    static let baseURL: String = {
-
-        guard let url = Bundle.main.object(
-            forInfoDictionaryKey: "BASE_URL"
-        ) as? String else {
-
-            fatalError("BASE_URL not found")
+// MARK: - Network Errors
+enum NetworkError: LocalizedError {
+    case noData
+    case invalidURL
+    case decodingFailed
+    
+    var errorDescription: String? {
+        switch self {
+        case .noData:         return "No data returned from server."
+        case .invalidURL:     return "Invalid URL."
+        case .decodingFailed: return "Failed to decode response."
         }
-
-        return url
-    }()
+    }
 }

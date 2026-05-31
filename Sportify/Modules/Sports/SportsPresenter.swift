@@ -38,18 +38,8 @@ class SportsPresenter: SportsPresenterProtocol {
             ),
             
             Sport(
-                sportName: "Football",
-                sportThumb: "football_img"
-            ),
-            
-            Sport(
-                sportName: "Swimming",
-                sportThumb: "swimming_img"
-            ),
-            
-            Sport(
-                sportName: "Cycling",
-                sportThumb: "cycling_img"
+                sportName: "Cricket",
+                sportThumb: "cricket_img"
             )
         ]
         

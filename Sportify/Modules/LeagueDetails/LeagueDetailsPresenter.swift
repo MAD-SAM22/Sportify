@@ -10,8 +10,12 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
     
     weak var view: LeagueDetailsViewProtocol?
     
+    var selectedSport: Sport?
     var selectedLeague: League?
-
+    var teams : [Team] = []
+    var recent: [Event] = []
+    var upcoming: [Event] = []
+    
     private var currentTabIndex = 0
     private var isFavoriteLeague = false
     
@@ -25,13 +29,20 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
         self.view = view
     }
     
-    // Protocol Implementation
     func viewDidLoad() {
-        // Later: Call NetworkManager here to fetch data.
-        // For now: Tell the view we are ready to display our static data.
-        // NetworkManager.shared.fetchLeagueDetails(id: selectedLeague?.id) { ... }
+        guard let leagueId = selectedLeague?.leagueKey,
+              let sport    = selectedSport else { return }
 
-        view?.reloadData()
+        NetworkManager.shared.fetchLeagueDetails(
+            leagueId: leagueId,
+            sport: sport.sportName ?? ""
+        ) { [weak self] teams, recent, upcoming in
+            // Already on main thread
+            self?.teams    = teams
+            self?.recent   = recent
+            self?.upcoming = upcoming
+            self?.view?.reloadData()
+        }
     }
     
     func didSelectTab(index: Int) {
