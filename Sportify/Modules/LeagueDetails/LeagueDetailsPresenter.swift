@@ -57,12 +57,12 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
     // MARK: - Data Providers for the View
     
     func getTeamsCount() -> Int {
-        return totalTeams
+        return teams.count
     }
     
     func getGamesCount() -> Int {
         // Return 5 if Recent is selected, 3 if Upcoming is selected
-        return currentTabIndex == 0 ? recentGamesCount : upcomingGamesCount
+        return currentTabIndex == 0 ? recent.count : upcoming.count
     }
     
     func getSelectedTabIndex() -> Int {
@@ -91,25 +91,12 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
     
     func didSelectTeam(at index: Int) {
             // Guard checking against your dummy counter limit
-            guard index >= 0 && index < totalTeams else { return }
+        guard index >= 0 && index < teams.count else { return }
             
             // Create dynamic dummy data based on the tapped item index
-        let mockTeam = Team(
-            
-            teamKey: index,
-            
-            teamName: "Team \(index)",
-            
-            teamLogo: "bayern_logo",
-            
-            teamCountry: "Germany",
-            
-            teamFounded: "1900",
-            
-            venueName: "Allianz Arena"
-        )
+        let theTeam = teams[index]
 
             // Tell the view to perform the segue presentation transition
-            view?.navigateToTeamDetails(with: mockTeam)
+            view?.navigateToTeamDetails(with: theTeam)
         }
 }

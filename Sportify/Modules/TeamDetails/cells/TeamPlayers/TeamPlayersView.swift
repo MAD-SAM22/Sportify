@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher 
 
 class TeamPlayersView: UIView {
 
@@ -71,5 +72,19 @@ class TeamPlayersView: UIView {
         ])
 
         return container
+    }
+    
+    func configureWithURLs(_ urls: [String]) {
+        // Find all imageViews inside the stack and load URLs
+        for (index, subview) in playersStackView.arrangedSubviews.enumerated() {
+            guard index < urls.count else { break }
+            if let imageView = subview.subviews.first(where: { $0 is UIImageView }) as? UIImageView {
+                guard let url = URL(string: urls[index]) else { continue }
+                imageView.kf.setImage(
+                    with: url,
+                    placeholder: UIImage(systemName: "person.circle.fill")
+                )
+            }
+        }
     }
 }

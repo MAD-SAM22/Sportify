@@ -37,8 +37,8 @@ class NetworkManager {
         params["APIkey"] = apiKey
         
         let endpoint = APIConstants.endpoint(for: sport)
-        let url = baseURL + endpoint
-        
+        let url = baseURL + endpoint + "/"
+
         print("🌐 Request URL: \(url)")
         print("📦 Params: \(params)")
         

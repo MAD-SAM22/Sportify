@@ -68,6 +68,7 @@ extension LeaguesViewController: LeaguesViewProtocol {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
             detailsVC.selectedLeague = league
+            detailsVC.selectedSport = sport
             navigationController?.pushViewController(detailsVC, animated: true)
         }
     }

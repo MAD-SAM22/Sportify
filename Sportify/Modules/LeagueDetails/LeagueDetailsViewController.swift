@@ -13,14 +13,14 @@ class LeagueDetailsViewController: UIViewController {
     @IBOutlet weak var favoriteBarButtonItem: UIBarButtonItem!
     var presenter: LeagueDetailsPresenterProtocol!
     var selectedLeague: League?
-    
+    var selectedSport:Sport?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Initialize the presenter and inject the view (self)
         presenter = LeagueDetailsPresenter(view: self)
         presenter.selectedLeague=selectedLeague
-        
+        presenter.selectedSport  = selectedSport
         setupNavigationBar()
 
         setupCollectionView()
@@ -82,7 +82,7 @@ extension LeagueDetailsViewController: LeagueDetailsViewProtocol {
 
                 // Pass real data fetched via the presenter
                 teamVC.selectedTeam = team
-                teamVC.sport = "soccer"
+                teamVC.sport = selectedSport?.sportName ?? "soccer"
 
                 navigationController?.pushViewController(teamVC, animated: true)
             }

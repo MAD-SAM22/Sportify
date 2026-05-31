@@ -13,22 +13,24 @@ struct EventsResponse: Decodable {
 }
 
 struct Event: Decodable {
-    let eventKey: String?
+    let eventKey: Int?
     let eventDate: String?
     let eventTime: String?
 
     // Home Team Data
     let eventHomeTeam: String?
-    let homeTeamKey: String?
+    let homeTeamKey: Int?
     let homeTeamLogo: String?
 
     // Away Team Data
     let eventAwayTeam: String?
-    let awayTeamKey: String?
+    let awayTeamKey: Int?
     let awayTeamLogo: String?
 
     // Match Details
     let eventFinalResult: String?
+    let eventHalftimeResult: String?
+    let eventFtResult: String?
     let eventStatus: String?
 
 }
@@ -49,6 +51,8 @@ extension Event {
         case awayTeamLogo = "away_team_logo"
 
         case eventFinalResult = "event_final_result"
+        case eventHalftimeResult = "event_halftime_result"
+        case eventFtResult       = "event_ft_result"
         case eventStatus = "event_status"
     }
 }

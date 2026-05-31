@@ -21,6 +21,7 @@ struct Team: Decodable {
     let teamFounded: String?
 
     let venueName: String?
+    let players: [Player]?
 }
 
 extension Team {
@@ -34,16 +35,23 @@ extension Team {
         case teamFounded = "team_founded"
 
         case venueName = "venue_name"
+        case players     = "players"
+
     }
 }
 
-//struct Team {
-//    let name: String
-//    let country: String
-//    let stadium: String
-//    let founded: String
-//    let about: String
-//    let bannerImage: String
-//    let logoImage: String
-//    let sport: String
-//}
+struct Player: Decodable {
+    let playerKey: Int?
+    let playerName: String?
+    let playerImage: String?
+    let playerNumber: String?
+    let playerPosition: String?
+
+    enum CodingKeys: String, CodingKey {
+        case playerKey      = "player_key"
+        case playerName     = "player_name"
+        case playerImage    = "player_image"
+        case playerNumber   = "player_number"
+        case playerPosition = "player_type"
+    }
+}
