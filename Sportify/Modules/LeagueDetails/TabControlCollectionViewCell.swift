@@ -4,51 +4,64 @@
 //
 //  Created by Mina_Wagdy on 22/05/2026.
 //
+//  TabControlCollectionViewCell.swift
+//  Sportify
 
 import UIKit
 
 class TabControlCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var indicatorView: UIView!
+
     override func awakeFromNib() {
-            super.awakeFromNib()
-            setupUI()
-        }
-        
+        super.awakeFromNib()
+        setupUI()
+    }
+
     private func setupUI() {
-        // Default state
-        titleLabel.textColor = .secondaryLabel
-        indicatorView.isHidden = true
-        
         backgroundColor = .clear
         contentView.backgroundColor = .clear
 
-        // Default unselected state
+        // Label — default unselected
         titleLabel.textColor = UIColor.white.withAlphaComponent(0.4)
         titleLabel.font = UIFont.systemFont(ofSize: 15)
         titleLabel.textAlignment = .center
 
-        // Indicator styling
-        indicatorView.layer.cornerRadius = 2
+        // Indicator — blue accent, starts hidden
+        indicatorView.backgroundColor = UIColor(red: 0.20, green: 0.60, blue: 1.0, alpha: 1)
+        indicatorView.layer.cornerRadius = 1.5
         indicatorView.isHidden = true
         indicatorView.transform = CGAffineTransform(scaleX: 0.1, y: 1.0)
     }
-        
-        // This built-in property automatically updates when the collection view changes selection
-        override var isSelected: Bool {
-            didSet {
-                titleLabel.textColor = isSelected ? .label : .secondaryLabel
-                indicatorView.isHidden = !isSelected
-                
-                // Optional: Add a subtle spring animation for a better UX
-                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-                    self.indicatorView.transform = self.isSelected ? .identity : CGAffineTransform(scaleX: 0.1, y: 1.0)
-                }, completion: nil)
+
+    override var isSelected: Bool {
+        didSet {
+            titleLabel.textColor = isSelected
+                ? .white
+                : UIColor.white.withAlphaComponent(0.4)
+
+            titleLabel.font = isSelected
+                ? UIFont.boldSystemFont(ofSize: 15)
+                : UIFont.systemFont(ofSize: 15)
+
+            indicatorView.isHidden = !isSelected
+
+            UIView.animate(
+                withDuration: 0.3,
+                delay: 0,
+                usingSpringWithDamping: 0.7,
+                initialSpringVelocity: 0.5,
+                options: .curveEaseInOut
+            ) {
+                self.indicatorView.transform = self.isSelected
+                    ? .identity
+                    : CGAffineTransform(scaleX: 0.1, y: 1.0)
             }
         }
-        
-        func configure(title: String) {
-            titleLabel.text = title
-        }
+    }
+
+    func configure(title: String) {
+        titleLabel.text = title
+    }
 }

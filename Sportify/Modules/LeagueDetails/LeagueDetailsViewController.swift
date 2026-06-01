@@ -309,30 +309,18 @@ extension LeagueDetailsViewController: UICollectionViewDataSource {
             return cell
 
         case 2:
-            let cell =
-                collectionView.dequeueReusableCell(
-                    withReuseIdentifier: GameCollectionViewCell.identifier,
-                    for: indexPath) as! GameCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: GameCollectionViewCell.identifier,
+                for: indexPath) as! GameCollectionViewCell
 
             if presenter.isLoading {
-                // Show SkeletonView
                 cell.showAnimatedGradientSkeleton()
             } else {
-                // Hide SkeletonView before assigning real data
                 cell.hideSkeleton()
 
                 if let game = presenter.getGame(at: indexPath.row) {
-                    let matchState = presenter.getCurrentMatchState(
-                        for: indexPath.row)
-                    cell.configure(
-                        homeName: game.eventHomeTeam ?? "Home",
-                        homeImageURL: game.homeTeamLogo ?? "",
-                        awayName: game.eventAwayTeam ?? "Away",
-                        awayImageURL: game.awayTeamLogo ?? "",
-                        date: game.eventDate ?? "",
-                        time: game.eventTime ?? "",
-                        state: matchState
-                    )
+                    let matchState = presenter.getCurrentMatchState(for: indexPath.row)
+                    cell.configure(with: game, state: matchState)
                 }
             }
             return cell
