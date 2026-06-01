@@ -24,18 +24,15 @@ class LeagueDetailsViewController: UIViewController {
         presenter.selectedLeague = selectedLeague
         presenter.selectedSport = selectedSport
         setupNavigationBar()
-
         setupCollectionView()
-        // Set the initial UI state for the heart icon on load
-        setupInitialFavoriteState()
 
         // Tell the presenter the view is ready
         presenter.viewDidLoad()
     }
-    private func setupInitialFavoriteState() {
-        let isFav = presenter.isFavorite()
-        favoriteBarButtonItem.image = UIImage(
-            systemName: isFav ? "heart.fill" : "heart")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Tell the presenter the screen is about to show
+        presenter.viewWillAppear()
     }
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         // Immediately delegate the action to the Presenter
@@ -89,6 +86,16 @@ extension LeagueDetailsViewController: LeagueDetailsViewProtocol {
 
             navigationController?.pushViewController(teamVC, animated: true)
         }
+    }
+    func showUnfavoriteConfirmationAlert() {
+        self.showDestructiveAlert(
+            title: "Remove League",
+            message:
+                "Are you sure you want to remove this league from your favorites?",
+            confirmAction: { [weak self] in
+                self?.presenter.confirmUnfavorite()
+            }
+        )
     }
 }
 
@@ -225,7 +232,7 @@ extension LeagueDetailsViewController {
 }
 // MARK: - UICollectionView DataSource
 extension LeagueDetailsViewController: UICollectionViewDataSource {
-    
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }

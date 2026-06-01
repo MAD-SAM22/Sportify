@@ -18,48 +18,45 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
     }
 
     func viewDidLoad() {
-        if hasFavorites {
-            // Hardcoded for now — replace with CoreData fetch later
-            favorites = [
+    }
+    func viewWillAppear() {
+        favorites = CoreDataManager.shared.fetchFavoriteLeagues()
 
-                League(
-                    leagueKey: 1,
-                    leagueName: "Premier League",
-                    leagueLogo: "football_img"
-                ),
-
-                League(
-                    leagueKey: 2,
-                    leagueName: "LaLiga",
-                    leagueLogo: "football_img"
-                ),
-
-                League(
-                    leagueKey: 3,
-                    leagueName: "Serie A",
-                    leagueLogo: "football_img"
-                )
-            ]
-            view?.showFavorites(favorites)
-        } else {
+        if favorites.isEmpty {
             view?.showEmptyState()
+        } else {
+            view?.showFavorites(favorites)
         }
     }
 
     func didSelectLeague(at index: Int) {
-        let selected = favorites[index]
-        view?
-            .navigateToLeagueDetails(
-                with: selected ,
-                sport: Sport(sportName: "football", sportThumb: "")
+        // Check Internet Connection before navigating
+        if ReachabilityManager.shared.isConnectedToInternet {
+            let selected = favorites[index]
+            let sportName = selected.sportName ?? "football"
+            view?.navigateToLeagueDetails(
+                with: selected,
+                sport: Sport(sportName: sportName, sportThumb: "")
             )
+        } else {
+            // Show alert if offline
+            view?.showNoInternetAlert()
+        }
     }
 
     func didDeleteLeague(at index: Int) {
+        let leagueToDelete = favorites[index]
+
+        // Delete from CoreData using the leagueKey
+        if let key = leagueToDelete.leagueKey {
+            CoreDataManager.shared.deleteLeagueFromFavorites(leagueKey: key)
+        }
+
+        // Update local array and View
         favorites.remove(at: index)
         view?.deleteRow(at: index)
 
-        // If no more favorites show empty state
+        // If no more favorites, show empty state
         if favorites.isEmpty {
             view?.showEmptyState()
         }

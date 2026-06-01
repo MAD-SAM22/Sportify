@@ -31,12 +31,15 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
     }
 
     func viewDidLoad() {
-        fetchLeagueData()
-    }
+            fetchLeagueData()
+        }
+
+        func viewWillAppear() {
+            checkFavoriteStatus()
+        }
 
     private func fetchLeagueData() {
         // Safely unwrap the IDs/names needed for the API call
-        // (Assuming your League model has a leagueKey or similar integer property)
         guard let leagueId = selectedLeague?.leagueKey,
             let sportName = selectedSport?.sportName
         else {
@@ -83,12 +86,36 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
     }
 
     func didTapFavorite() {
-        // Toggle the state
-        isFavoriteLeague.toggle()
+        if isFavoriteLeague {
+            // It IS currently a favorite. Instead of deleting, ask the View to show an alert.
+            view?.showUnfavoriteConfirmationAlert()
+        } else {
+            // It is NOT a favorite, so the user wants to SAVE it immediately.
+            guard let league = selectedLeague,
+                let sport = selectedSport
+            else { return }
 
-        // Later: Save to or remove from CoreData here!
+            let sportName = sport.sportName ?? "Unknown Sport"
+            CoreDataManager.shared.saveLeagueToFavorites(
+                league: league, sportName: sportName)
 
-        // Tell the view to update its UI based on the new state
+            // Update state and UI
+            isFavoriteLeague = true
+            view?.updateFavoriteIcon(isFavorite: isFavoriteLeague)
+        }
+    }
+
+    // The View calls this ONLY if the user taps "Remove" on the alert
+    func confirmUnfavorite() {
+        guard let league = selectedLeague, let key = league.leagueKey else {
+            return
+        }
+
+        // Delete from CoreData
+        CoreDataManager.shared.deleteLeagueFromFavorites(leagueKey: key)
+
+        // Update state and View UI
+        isFavoriteLeague = false
         view?.updateFavoriteIcon(isFavorite: isFavoriteLeague)
     }
     // MARK: - Data Source Counts
@@ -146,5 +173,16 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
             guard index >= 0 && index < upcomingEvents.count else { return nil }
             return upcomingEvents[index]
         }
+    }
+    // MARK: - CoreData Initial Check
+    private func checkFavoriteStatus() {
+        guard let leagueId = selectedLeague?.leagueKey else { return }
+
+        // Use our CoreDataManager to check if this ID exists in the database
+        isFavoriteLeague = CoreDataManager.shared.isFavorite(
+            leagueKey: leagueId)
+
+        // Tell the view to set the heart icon correctly before the API even finishes loading
+        view?.updateFavoriteIcon(isFavorite: isFavoriteLeague)
     }
 }
