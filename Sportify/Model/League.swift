@@ -15,6 +15,7 @@ struct League: Decodable {
     let leagueKey: Int?
     let leagueName: String?
     let leagueLogo: String?
+    var sportName: String?
 }
 
 extension League {
@@ -22,5 +23,6 @@ extension League {
         case leagueKey = "league_key"
         case leagueName = "league_name"
         case leagueLogo = "league_logo"
+        case sportName
     }
 }

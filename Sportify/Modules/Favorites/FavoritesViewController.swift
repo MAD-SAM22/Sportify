@@ -5,6 +5,7 @@
 //  Created by Osama Hosam on 23/05/2026.
 //
 
+import Kingfisher
 import UIKit
 
 class FavoritesViewController: UIViewController {
@@ -21,19 +22,20 @@ class FavoritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         presenter = FavoritesPresenter(view: self)
-
         setupUI()
         setupTableView()
-
         presenter.viewDidLoad()
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewWillAppear()
+    }
     // MARK: - Setup
     private func setupUI() {
         title = "Favorites"
-        emptySubtitleLabel.text = "Tap the heart icon on any league\nto save it here for quick access."
+        emptySubtitleLabel.text =
+            "Tap the heart icon on any league\nto save it here for quick access."
     }
 
     private func setupTableView() {
@@ -62,17 +64,22 @@ extension FavoritesViewController: FavoritesViewProtocol {
 
     func deleteRow(at index: Int) {
         favorites.remove(at: index)
-        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        tableView.deleteRows(
+            at: [IndexPath(row: index, section: 0)], with: .automatic)
 
         if favorites.isEmpty {
             showEmptyState()
         }
     }
-    
-    func navigateToLeagueDetails(with league: League , sport:Sport ) {
+
+    func navigateToLeagueDetails(with league: League, sport: Sport) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let detailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as? LeagueDetailsViewController {
+        if let detailsVC = storyboard.instantiateViewController(
+            withIdentifier: "LeagueDetailsViewController")
+            as? LeagueDetailsViewController
+        {
             detailsVC.selectedLeague = league
+            detailsVC.selectedSport = sport
             navigationController?.pushViewController(detailsVC, animated: true)
         }
     }
@@ -81,17 +88,43 @@ extension FavoritesViewController: FavoritesViewProtocol {
 // MARK: - UITableViewDataSource
 extension FavoritesViewController: UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+        -> Int
+    {
         return favorites.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LeaguesCell", for: indexPath) as! LeaguesTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+        -> UITableViewCell
+    {
+        let cell =
+            tableView.dequeueReusableCell(
+                withIdentifier: "LeaguesCell", for: indexPath)
+            as! LeaguesTableViewCell
         let league = favorites[indexPath.row]
+
         cell.leagueName.text = league.leagueName
-        cell.leagueImage.image = UIImage(named: league.leagueLogo ?? "")
 
+        // Safely unwrap the URL string and create a URL object
+        if let logoString = league.leagueLogo, let url = URL(string: logoString)
+        {
 
+            // 2. Show a loading spinner while fetching
+            cell.leagueImage.kf.indicatorType = .activity
+
+            // 3. Fetch and cache the image
+            cell.leagueImage.kf.setImage(
+                with: url,
+                placeholder: UIImage(systemName: "photo.circle.fill"),  // Fallback if offline and uncached
+                options: [
+                    .transition(.fade(0.3)),
+                    .cacheOriginalImage,  // Ensures it saves to disk for offline persistence
+                ]
+            )
+        } else {
+            // Fallback if the URL is completely missing
+            cell.leagueImage.image = UIImage(systemName: "photo.circle.fill")
+        }
 
         return cell
     }
@@ -100,17 +133,39 @@ extension FavoritesViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension FavoritesViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(
+        _ tableView: UITableView, didSelectRowAt indexPath: IndexPath
+    ) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.didSelectLeague(at: indexPath.row)
     }
 
-    // Swipe to delete
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Remove") { [weak self] _, _, completion in
-            self?.presenter.didDeleteLeague(at: indexPath.row)
-            completion(true)
+    // Swipe to delete with Reusable Confirmation Alert
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+
+        let deleteAction = UIContextualAction(
+            style: .destructive, title: "Remove"
+        ) { [weak self] _, _, completion in
+
+            self?.showDestructiveAlert(
+                title: "Remove League",
+                message:
+                    "Are you sure you want to remove this league from your favorites?",
+                confirmAction: {
+                    // Triggered if user taps "Remove"
+                    self?.presenter.didDeleteLeague(at: indexPath.row)
+                    completion(true)
+                },
+                cancelAction: {
+                    // Triggered if user taps "Cancel"
+                    completion(false)
+                }
+            )
         }
+
         deleteAction.image = UIImage(systemName: "trash.fill")
         deleteAction.backgroundColor = .red
         return UISwipeActionsConfiguration(actions: [deleteAction])
