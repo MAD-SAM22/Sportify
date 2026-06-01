@@ -9,6 +9,7 @@ protocol LeaguesViewProtocol: AnyObject {
     func showLeagues(_ leagues: [League])
     func showError(_ message: String)
     func navigateToLeagueDetails(with league: League , sport : Sport)
+    func showNoInternetAlert()
 }
 
 protocol LeaguesPresenterProtocol: AnyObject {
