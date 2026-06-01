@@ -362,3 +362,22 @@ extension LeagueDetailsViewController: UICollectionViewDelegate {
         }
     }
 }
+
+extension UIViewController {
+    func showDestructiveAlert(title: String, message: String, confirmAction: @escaping () -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "Remove", style: .destructive) { _ in
+            confirmAction()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        // FIX: Changed 'bundle: nil' to 'completion: nil'
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+}
