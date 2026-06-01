@@ -40,12 +40,15 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
     }
 
     func didSelectLeague(at index: Int) {
+        if ReachabilityManager.shared.isConnectedToInternet {
+            let selected = leagues[index]
 
-        let selected = leagues[index]
-
-        view?.navigateToLeagueDetails(
-            with: selected,
-            sport: selectedSport ?? Sport(sportName: "football", sportThumb: "")
-        )
+            view?.navigateToLeagueDetails(
+                with: selected,
+                sport: selectedSport ?? Sport(sportName: "football", sportThumb: "")
+            )
+        }else{
+            view?.showNoInternetAlert()
+        }
     }
 }

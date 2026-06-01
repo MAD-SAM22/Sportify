@@ -10,6 +10,7 @@ protocol SportsViewProtocol: AnyObject {
     func showSports(_ sports: [Sport])
     func showError(_ message: String)
     func navigateToLeagues(with sport: Sport)
+    func showNoInternetAlert()
 }
 
 //(what View can tell the Presenter to do)

@@ -47,9 +47,12 @@ class SportsPresenter: SportsPresenterProtocol {
     }
     
     func didSelectSport(at index: Int) {
-        
-        let selected = sports[index]
-        
-        view?.navigateToLeagues(with: selected)
+        if ReachabilityManager.shared.isConnectedToInternet{
+            let selected = sports[index]
+            
+            view?.navigateToLeagues(with: selected)
+        }else{
+            view?.showNoInternetAlert()
+        }
     }
 }
