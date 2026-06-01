@@ -62,6 +62,7 @@ extension OnboardingViewController: OnboardingViewProtocol {
     }
 
     func navigateToMainApp() {
+        UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
         guard
