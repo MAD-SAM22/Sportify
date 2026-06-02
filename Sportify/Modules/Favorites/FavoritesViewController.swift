@@ -24,6 +24,7 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
         presenter = FavoritesPresenter(view: self)
         setupUI()
+        setupAppNavigationBar(withTitle: "Favorites")
         setupTableView()
         presenter.viewDidLoad()
     }

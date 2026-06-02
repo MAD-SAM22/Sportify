@@ -39,7 +39,7 @@ class TeamDetailsViewController: UIViewController {
         presenter.sport = sport
 
         setupUI()
-        setupNavigationBar()
+        setupAppNavigationBar(withTitle: "Team Details")
         buildStaticSections()
 
         // Tell presenter view is ready
@@ -48,8 +48,7 @@ class TeamDetailsViewController: UIViewController {
 
     // MARK: - Setup
     private func setupUI() {
-        view.backgroundColor = UIColor(
-            red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
+        view.backgroundColor = UIColor(named: "Background") ?? UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
         scrollView.backgroundColor = .clear
         scrollView.showsVerticalScrollIndicator = false
         contentStackView.axis = .vertical
@@ -58,20 +57,7 @@ class TeamDetailsViewController: UIViewController {
         contentStackView.distribution = .fill
     }
 
-    private func setupNavigationBar() {
-        title = selectedTeam?.teamName ?? "Team Details"
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(
-            red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
-        appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.white,
-            .font: UIFont.boldSystemFont(ofSize: 20),
-        ]
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.tintColor = .white
-    }
+
 
     // MARK: - Build Static Sections
     // These sections are always shown — data filled in by presenter callbacks

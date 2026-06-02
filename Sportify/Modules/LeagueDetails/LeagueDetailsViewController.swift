@@ -23,7 +23,7 @@ class LeagueDetailsViewController: UIViewController {
         presenter = LeagueDetailsPresenter(view: self)
         presenter.selectedLeague = selectedLeague
         presenter.selectedSport = selectedSport
-        setupNavigationBar()
+        setupAppNavigationBar(withTitle: "League Details")
         setupCollectionView()
 
         // Tell the presenter the view is ready
@@ -39,24 +39,6 @@ class LeagueDetailsViewController: UIViewController {
         presenter.didTapFavorite()
     }
 
-    private func setupNavigationBar() {
-        title = selectedLeague?.leagueName ?? "League Details"
-
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(
-            red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
-        appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.white,
-            .font: UIFont.boldSystemFont(ofSize: 20),
-        ]
-
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.isHidden = false
-    }
 }
 // MARK: - MVP View Protocol
 extension LeagueDetailsViewController: LeagueDetailsViewProtocol {

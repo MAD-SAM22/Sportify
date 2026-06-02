@@ -18,10 +18,9 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
 
-                    <!-- Card Background -->
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="068-ht-JIe">
                         <rect key="frame" x="8" y="8" width="264" height="104"/>
-                        <color key="backgroundColor" red="0.10" green="0.13" blue="0.22" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1019607843" green="0.1294117647" blue="0.2509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="20"/>
@@ -33,10 +32,9 @@
                         </userDefinedRuntimeAttributes>
                         <subviews>
 
-                            <!-- Home Team Image -->
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xCV-p8-ZY5" userLabel="homeImageView">
                                 <rect key="frame" x="12" y="12" width="52" height="52"/>
-                                <color key="backgroundColor" red="0.15" green="0.18" blue="0.28" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1176470588" green="0.1568627451" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="CBV-aA-CFt"/>
                                     <constraint firstAttribute="height" constant="52" id="Kax-Di-Lgc"/>
@@ -49,18 +47,16 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
 
-                            <!-- Home Team Name -->
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontSizeToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RAV-dY-fT0">
                                 <rect key="frame" x="0" y="70" width="76" height="16"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="1.0" green="1.0" blue="1.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
 
-                            <!-- Away Team Image -->
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YbM-cQ-KsE" userLabel="awayImageView">
                                 <rect key="frame" x="200" y="12" width="52" height="52"/>
-                                <color key="backgroundColor" red="0.15" green="0.18" blue="0.28" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1176470588" green="0.1568627451" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="FbD-L1-Z73"/>
                                     <constraint firstAttribute="width" constant="52" id="h6s-Y0-DYT"/>
@@ -73,48 +69,42 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
 
-                            <!-- Away Team Name -->
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontSizeToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fli-Mo-NTQ">
                                 <rect key="frame" x="188" y="70" width="76" height="16"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="1.0" green="1.0" blue="1.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
 
-                            <!-- Center Stack: Score / VS / Date / Time -->
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="YlT-1f-9YR">
                                 <rect key="frame" x="82" y="8" width="100" height="88"/>
                                 <subviews>
 
-                                    <!-- Score or VS -->
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ye8-cf-zcy" userLabel="scoreOrVsLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="1.0" green="1.0" blue="1.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
 
-                                    <!-- Match Status (FT) -->
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fx3-IJ-45s" userLabel="matchStatusLabel">
                                         <rect key="frame" x="0.0" y="38" width="100" height="16"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                        <color key="textColor" red="0.20" green="0.60" blue="1.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.2313725490" green="0.5098039216" blue="0.9647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
 
-                                    <!-- Date -->
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2026-05-01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6b-ax-UUE" userLabel="dateLabel">
                                         <rect key="frame" x="0.0" y="56" width="100" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.6" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.6274509804" green="0.6823529412" blue="0.7529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
 
-                                    <!-- Time -->
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBn-Bw-Mcd" userLabel="timeLabel">
                                         <rect key="frame" x="0.0" y="74" width="100" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.4" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.6274509804" green="0.6823529412" blue="0.7529411765" alpha="0.6999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
 
@@ -123,28 +113,22 @@
 
                         </subviews>
 
-                        <!-- Card internal constraints -->
                         <constraints>
-                            <!-- Home Image -->
                             <constraint firstItem="xCV-p8-ZY5" firstAttribute="top" secondItem="068-ht-JIe" secondAttribute="top" constant="12" id="homeImageTop"/>
                             <constraint firstItem="xCV-p8-ZY5" firstAttribute="leading" secondItem="068-ht-JIe" secondAttribute="leading" constant="12" id="kYg-lh-iei"/>
 
-                            <!-- Home Name -->
                             <constraint firstItem="RAV-dY-fT0" firstAttribute="top" secondItem="xCV-p8-ZY5" secondAttribute="bottom" constant="6" id="Bes-h0-WKY"/>
                             <constraint firstItem="RAV-dY-fT0" firstAttribute="centerX" secondItem="xCV-p8-ZY5" secondAttribute="centerX" id="BgE-aj-vSU"/>
                             <constraint firstItem="RAV-dY-fT0" firstAttribute="leading" secondItem="068-ht-JIe" secondAttribute="leading" constant="0" id="homeLabelLeftEdge"/>
                             <constraint firstItem="RAV-dY-fT0" firstAttribute="width" constant="76" id="homeLabelWidth"/>
 
-                            <!-- Center Stack -->
                             <constraint firstItem="YlT-1f-9YR" firstAttribute="centerX" secondItem="068-ht-JIe" secondAttribute="centerX" id="WsY-UO-fiv"/>
                             <constraint firstItem="YlT-1f-9YR" firstAttribute="centerY" secondItem="068-ht-JIe" secondAttribute="centerY" id="X7c-0G-Tv6"/>
                             <constraint firstItem="YlT-1f-9YR" firstAttribute="width" constant="100" id="stackWidth"/>
 
-                            <!-- Away Image -->
                             <constraint firstItem="YbM-cQ-KsE" firstAttribute="top" secondItem="068-ht-JIe" secondAttribute="top" constant="12" id="awayImageTop"/>
                             <constraint firstAttribute="trailing" secondItem="YbM-cQ-KsE" secondAttribute="trailing" constant="12" id="svS-oL-ZIf"/>
 
-                            <!-- Away Name -->
                             <constraint firstItem="Fli-Mo-NTQ" firstAttribute="top" secondItem="YbM-cQ-KsE" secondAttribute="bottom" constant="6" id="mX8-g4-jxh"/>
                             <constraint firstItem="Fli-Mo-NTQ" firstAttribute="centerX" secondItem="YbM-cQ-KsE" secondAttribute="centerX" id="pVd-22-MFe"/>
                             <constraint firstAttribute="trailing" secondItem="Fli-Mo-NTQ" secondAttribute="trailing" constant="0" id="awayLabelRightEdge"/>
@@ -155,7 +139,6 @@
                 </subviews>
             </view>
 
-            <!-- Cell outer constraints -->
             <constraints>
                 <constraint firstItem="068-ht-JIe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="PcO-bp-p2Z"/>
                 <constraint firstItem="068-ht-JIe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Xmc-fw-9zO"/>

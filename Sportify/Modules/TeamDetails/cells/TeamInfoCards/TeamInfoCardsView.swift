@@ -32,28 +32,28 @@ class TeamInfoCardsView: UIView {
     }
 
     private func setupUI() {
-        // Matches the premium #1F1F1F background look from your reference mockup
+        let accentColor = UIColor(named: "Accent_Blue") ?? UIColor(red: 0.23, green: 0.51, blue: 0.96, alpha: 1)
+        let textThemeColor = UIColor(named: "Text_Color") ?? .white
+        let cardBgColor = UIColor(named: "Card_Background") ?? UIColor(red: 0.10, green: 0.13, blue: 0.25, alpha: 1)
+        
         [countryCard, stadiumCard, foundedCard].forEach { card in
-            card?.backgroundColor = UIColor(
-                red: 0.12, green: 0.15, blue: 0.25, alpha: 1)
-            card?.layer.cornerRadius = 16
-            card?.layer.masksToBounds = true
-        }
+                    card?.backgroundColor = cardBgColor
+                    card?.layer.cornerRadius = 16
+                    card?.layer.masksToBounds = true
+                }
 
-        [countryValueLabel, stadiumValueLabel, foundedValueLabel].forEach {
-            label in
-            label?.textColor = .white
-            label?.font = UIFont.boldSystemFont(ofSize: 16)
-            label?.textAlignment = .center
-            label?.numberOfLines = 2
-        }
+        [countryValueLabel, stadiumValueLabel, foundedValueLabel].forEach { label in
+                    label?.textColor = textThemeColor
+                    label?.font = UIFont.boldSystemFont(ofSize: 16)
+                    label?.textAlignment = .center
+                    label?.numberOfLines = 2
+                }
 
         // Configures system SF Symbol tinting uniformly
-        [countryIconLabel, stadiumIconLabel, foundedIconLabel].forEach {
-            iconView in
-            iconView?.tintColor = .white
-            iconView?.contentMode = .scaleAspectFit
-        }
+        [countryIconLabel, stadiumIconLabel, foundedIconLabel].forEach { iconView in
+                    iconView?.tintColor = accentColor
+                    iconView?.contentMode = .scaleAspectFit
+                }
     }
     private func setupSkeleton() {
         self.isSkeletonable = true

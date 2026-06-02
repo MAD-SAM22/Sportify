@@ -1,3 +1,10 @@
+//
+//  TeamPlayersView.swift
+//  Sportify
+//
+//  Created by Ossama Abdellatif on 25/05/2026.
+//
+
 import Kingfisher
 import SkeletonView
 import UIKit
@@ -16,7 +23,7 @@ class TeamPlayersView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.text = "Players"
-        titleLabel.textColor = .white
+        titleLabel.textColor = UIColor(named: "Text_Color") ?? .white
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
         scrollView.showsHorizontalScrollIndicator = false
         setupSkeleton()
@@ -32,9 +39,11 @@ class TeamPlayersView: UIView {
             playersStackView.addArrangedSubview(playerView)
         }
     }
+    
     private func setupSkeleton() {
         playersStackView.isSkeletonable = true
     }
+    
     func setupDummySkeletonViews() {
         playersStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
@@ -51,6 +60,7 @@ class TeamPlayersView: UIView {
             playersStackView.addArrangedSubview(playerView)
         }
     }
+    
     private func createPlayerView(name: String, image: UIImage?) -> UIView {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
@@ -61,15 +71,21 @@ class TeamPlayersView: UIView {
         imageView.layer.cornerRadius = 25
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .systemGray4
+        
+        // Mapped profile placeholder circle background
+        imageView.backgroundColor = UIColor(named: "Card_Background") ?? UIColor(red: 0.10, green: 0.13, blue: 0.25, alpha: 1)
         imageView.image = image ?? UIImage(systemName: "person.circle.fill")
-        imageView.tintColor = .white
+        
+        // Fallback default avatar icon tinted
+        imageView.tintColor = UIColor(named: "Accent_Blue") ?? UIColor(red: 0.23, green: 0.51, blue: 0.96, alpha: 1)
 
         // Name label
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = name
-        label.textColor = .white
+        
+        // Dynamic player name text
+        label.textColor = UIColor(named: "Text_Color") ?? .white
         label.font = UIFont.systemFont(ofSize: 11)
         label.textAlignment = .center
         label.numberOfLines = 2
