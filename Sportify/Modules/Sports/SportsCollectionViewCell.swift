@@ -14,32 +14,36 @@ class SportsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sportLabel: UILabel!
 
     override func awakeFromNib() {
-        super.awakeFromNib()
+            super.awakeFromNib()
 
-        // Round the entire cell
-        layer.cornerRadius = 14
-        layer.masksToBounds = false
+            // Bind the cell's background to your dynamic asset catalog color
+            backgroundColor = UIColor(named: "Card_Background")
+            
+            // Round the entire cell
+            layer.cornerRadius = 14
+            layer.masksToBounds = false
 
-        // Shadow on the cell layer
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.4
-        layer.shadowOffset = CGSize(width: 0, height: 4)
-        layer.shadowRadius = 6
+            
+            layer.shadowColor = UIColor.black.cgColor
+            
+            
+            layer.shadowOpacity = 0.12 // Kept lower and subtle for a premium, clean look
+            layer.shadowOffset = CGSize(width: 0, height: 4)
+            layer.shadowRadius = 8
 
-        // Image fills the cell completely
-        sportImageView.layer.cornerRadius = 14
-        sportImageView.layer.masksToBounds = true
-        sportImageView.contentMode = .scaleAspectFill
-//        sportImageView.clipsToBounds = true
+            // Image fills the cell completely
+            sportImageView.layer.cornerRadius = 14
+            sportImageView.layer.masksToBounds = true
+            sportImageView.contentMode = .scaleAspectFill
 
-        // Style the label to sit as an overlay at the bottom
-        sportLabel.textColor = .white
-        sportLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        sportLabel.textAlignment = .center
+            // Style the label dynamically to adapt to light and dark
+            sportLabel.textColor = UIColor(named: "Text_Color")
+            sportLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            sportLabel.textAlignment = .center
 
-        // Dark gradient-like background behind the label
-//        sportLabel.backgroundColor = UIColor.black.withAlphaComponent(0.45)
-        sportLabel.layer.cornerRadius = 0  // flush with cell bottom
-        sportLabel.clipsToBounds = true
-    }
+            // Clear any old static clip configs
+            sportLabel.backgroundColor = .clear
+            sportLabel.layer.cornerRadius = 0
+            sportLabel.clipsToBounds = false
+        }
 }

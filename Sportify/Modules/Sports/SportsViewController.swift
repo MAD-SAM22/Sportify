@@ -28,7 +28,8 @@ class SportsViewController: UIViewController {
             layout.minimumInteritemSpacing = 12
             layout.minimumLineSpacing = 16
         }
-
+        
+        setupAppNavigationBar(withTitle: "Sports")
         presenter.viewDidLoad()
     }
 }

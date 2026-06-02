@@ -33,22 +33,26 @@ class LeaguesViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.rowHeight = 80
-        view.backgroundColor = UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
+//        view.backgroundColor = UIColor(named: "Background")
     }
 
     private func setupNavigationBar() {
-        title = selectedSport?.sportName ?? "Leagues"
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
-        appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.white,
-            .font: UIFont.boldSystemFont(ofSize: 20)
-        ]
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.tintColor = .white
-    }
+            title = selectedSport?.sportName ?? "Leagues"
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            
+            appearance.backgroundColor = UIColor(named: "Nav_Background")
+            
+            
+            appearance.titleTextAttributes = [
+                .foregroundColor: UIColor(named: "Text_Color") ?? .white,
+                .font: UIFont.boldSystemFont(ofSize: 20)
+            ]
+            
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            navigationController?.navigationBar.tintColor = UIColor(named: "Accent_Blue") ?? .systemBlue
+        }
 }
 
 extension LeaguesViewController: LeaguesViewProtocol {
