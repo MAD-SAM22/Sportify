@@ -12,36 +12,50 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(
-        _ scene: UIScene, willConnectTo session: UISceneSession,
-        options connectionOptions: UIScene.ConnectionOptions
-    ) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+            _ scene: UIScene, willConnectTo session: UISceneSession,
+            options connectionOptions: UIScene.ConnectionOptions
+        ) {
+            guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        // 1. Create a new window for the windowScene
-        let window = UIWindow(windowScene: windowScene)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // 1. Create a new window for the windowScene
+            let window = UIWindow(windowScene: windowScene)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        // 2. Check UserDefaults
-        if UserDefaults.standard.bool(forKey: "hasSeenOnboarding") {
-            // User has already seen onboarding, bypass it and go to MainTabBar
-            let mainTabBarVC =
-                storyboard.instantiateViewController(
-                    withIdentifier: "MainTabBarController")
-                as! UITabBarController
-            window.rootViewController = mainTabBarVC
-        } else {
-            // First time user, show the Onboarding flow
-            let onboardingVC =
-                storyboard.instantiateViewController(
-                    withIdentifier: "OnboardingViewController")
-                as! OnboardingViewController
-            window.rootViewController = onboardingVC
+            // 2. Load and Enforce Saved Dark Mode Preference
+            let isDark = UserDefaults.standard.bool(forKey: "app_dark_mode")
+            window.overrideUserInterfaceStyle = isDark ? .dark : .light
+
+            // 3. Load and Enforce Saved Language Semantic Alignment
+            if let savedLanguage = UserDefaults.standard.string(forKey: "selected_language") {
+                let attribute: UISemanticContentAttribute = (savedLanguage == "ar") ? .forceRightToLeft : .forceLeftToRight
+                
+                // Apply semantic alignment rules globally to all UI views, headers, and bars
+                UIView.appearance().semanticContentAttribute = attribute
+                UINavigationBar.appearance().semanticContentAttribute = attribute
+                UITabBar.appearance().semanticContentAttribute = attribute
+            }
+
+            // 4. Check Onboarding Status in UserDefaults
+            if UserDefaults.standard.bool(forKey: "hasSeenOnboarding") {
+                // User has already seen onboarding, bypass it and go to MainTabBar
+                let mainTabBarVC =
+                    storyboard.instantiateViewController(
+                        withIdentifier: "MainTabBarController")
+                    as! UITabBarController
+                window.rootViewController = mainTabBarVC
+            } else {
+                // First time user, show the Onboarding flow
+                let onboardingVC =
+                    storyboard.instantiateViewController(
+                        withIdentifier: "OnboardingViewController")
+                    as! OnboardingViewController
+                window.rootViewController = onboardingVC
+            }
+
+            // 5. Make this window the active one
+            self.window = window
+            window.makeKeyAndVisible()
         }
-
-        // 3. Make this window the active one
-        self.window = window
-        window.makeKeyAndVisible()
-    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

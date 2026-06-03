@@ -30,6 +30,7 @@ class SportsViewController: UIViewController {
         }
         
         setupAppNavigationBar(withTitle: "Sports")
+        setupSettingsButton()
         presenter.viewDidLoad()
     }
 }
