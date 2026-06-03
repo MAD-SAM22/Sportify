@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,21 +33,21 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Country:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="country-key-id">
-                                            <rect key="frame" x="24.000000000000004" y="32" width="52.333333333333343" height="15.666666666666664"/>
+                                            <rect key="frame" x="24.000000000000004" y="32" width="52.333333333333343" height="752.66666666666663"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" name="Accent_Blue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="England" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="country-value-id">
-                                            <rect key="frame" x="18.666666666666664" y="51.666666666666629" width="62.999999999999993" height="756.33333333333337"/>
+                                            <rect key="frame" x="18.666666666666664" y="788.66666666666663" width="62.999999999999993" height="19.333333333333371"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" name="Text_Color"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" red="0.085964210329999999" green="0.10124885290000001" blue="0.15218469500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" name="Background"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="cv-vstack" secondAttribute="bottom" constant="14" id="cv-b"/>
                                 <constraint firstItem="cv-vstack" firstAttribute="leading" secondItem="country-card-id" secondAttribute="leading" constant="6" id="cv-l"/>
@@ -77,19 +78,19 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Stadium:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-key-id">
                                             <rect key="frame" x="23.333333333333311" y="32" width="53.666666666666657" height="733.66666666666663"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" name="Accent_Blue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Stamford Bridge" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="stadium-value-id">
                                             <rect key="frame" x="12" y="769.66666666666663" width="76.666666666666671" height="38.333333333333371"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" name="Text_Color"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" red="0.085964210329999999" green="0.10124885290000001" blue="0.15218469500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" name="Background"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="sv-vstack" secondAttribute="bottom" constant="14" id="sv-b"/>
                                 <constraint firstItem="sv-vstack" firstAttribute="leading" secondItem="stadium-card-id" secondAttribute="leading" constant="6" id="sv-l"/>
@@ -120,19 +121,19 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Founded:" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="founded-key-id">
                                             <rect key="frame" x="21.666666666666629" y="32" width="57" height="752.66666666666663"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
+                                            <color key="textColor" name="Accent_Blue"/>
+                                            <color key="highlightedColor" name="Accent_Blue"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="1905" textAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="founded-value-id">
                                             <rect key="frame" x="30.333333333333311" y="788.66666666666663" width="39.666666666666657" height="19.333333333333371"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" name="Text_Color"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" red="0.085964210329999999" green="0.10124885290000001" blue="0.15218469500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" name="Background"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="fv-vstack" secondAttribute="bottom" constant="14" id="fv-b"/>
                                 <constraint firstItem="fv-vstack" firstAttribute="leading" secondItem="founded-card-id" secondAttribute="leading" constant="6" id="fv-l"/>
@@ -150,7 +151,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" red="0.078431372550000003" green="0.098039215690000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="Background"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hstack-id" secondAttribute="bottom" constant="8" id="hs-b"/>
                 <constraint firstItem="hstack-id" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="hs-l"/>
@@ -175,5 +176,14 @@
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="globe" catalog="system" width="128" height="123"/>
         <image name="sportscourt" catalog="system" width="128" height="83"/>
+        <namedColor name="Accent_Blue">
+            <color red="0.14499999582767487" green="0.3880000114440918" blue="0.92199999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background">
+            <color red="0.94900000095367432" green="0.9570000171661377" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text_Color">
+            <color red="0.050999999046325684" green="0.10599999874830246" blue="0.16500000655651093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

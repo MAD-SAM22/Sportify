@@ -41,4 +41,7 @@ class TeamAboutView: UIView {
     func configure(description: String) {
         descriptionLabel.text = description
     }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setupUI()
+    }
 }

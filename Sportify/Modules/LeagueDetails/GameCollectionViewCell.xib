@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,24 +17,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="280" height="120"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="068-ht-JIe">
                         <rect key="frame" x="8" y="8" width="264" height="104"/>
-                        <color key="backgroundColor" red="0.1019607843" green="0.1294117647" blue="0.2509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="20"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                <real key="value" value="0.5"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                         <subviews>
-
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xCV-p8-ZY5" userLabel="homeImageView">
                                 <rect key="frame" x="12" y="12" width="52" height="52"/>
-                                <color key="backgroundColor" red="0.1176470588" green="0.1568627451" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Card_Background"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="CBV-aA-CFt"/>
                                     <constraint firstAttribute="height" constant="52" id="Kax-Di-Lgc"/>
@@ -46,17 +34,15 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontSizeToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RAV-dY-fT0">
-                                <rect key="frame" x="0" y="70" width="76" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RAV-dY-fT0">
+                                <rect key="frame" x="0.0" y="70" width="76" height="13.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                <color key="textColor" red="1.0" green="1.0" blue="1.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="Text_Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YbM-cQ-KsE" userLabel="awayImageView">
                                 <rect key="frame" x="200" y="12" width="52" height="52"/>
-                                <color key="backgroundColor" red="0.1176470588" green="0.1568627451" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Card_Background"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="FbD-L1-Z73"/>
                                     <constraint firstAttribute="width" constant="52" id="h6s-Y0-DYT"/>
@@ -68,97 +54,105 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontSizeToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fli-Mo-NTQ">
-                                <rect key="frame" x="188" y="70" width="76" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Away Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fli-Mo-NTQ">
+                                <rect key="frame" x="188" y="70" width="76" height="13.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                <color key="textColor" red="1.0" green="1.0" blue="1.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="Secondary_Text"/>
                                 <nil key="highlightedColor"/>
                             </label>
-
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="YlT-1f-9YR">
-                                <rect key="frame" x="82" y="8" width="100" height="88"/>
+                                <rect key="frame" x="82" y="13.333333333333336" width="100" height="77.333333333333314"/>
                                 <subviews>
-
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ye8-cf-zcy" userLabel="scoreOrVsLabel">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="36"/>
+                                        <rect key="frame" x="32.666666666666671" y="0.0" width="34.666666666666671" height="31.333333333333332"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                        <color key="textColor" red="1.0" green="1.0" blue="1.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" name="Text_Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fx3-IJ-45s" userLabel="matchStatusLabel">
-                                        <rect key="frame" x="0.0" y="38" width="100" height="16"/>
+                                        <rect key="frame" x="43" y="33.333333333333329" width="14" height="13.333333333333336"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                        <color key="textColor" red="0.2313725490" green="0.5098039216" blue="0.9647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" name="Accent_Blue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2026-05-01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6b-ax-UUE" userLabel="dateLabel">
-                                        <rect key="frame" x="0.0" y="56" width="100" height="16"/>
+                                        <rect key="frame" x="18" y="48.666666666666671" width="64" height="13.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" red="0.6274509804" green="0.6823529412" blue="0.7529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" name="Secondary_Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBn-Bw-Mcd" userLabel="timeLabel">
-                                        <rect key="frame" x="0.0" y="74" width="100" height="16"/>
+                                        <rect key="frame" x="34.333333333333329" y="64" width="31.333333333333329" height="13.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <color key="textColor" red="0.6274509804" green="0.6823529412" blue="0.7529411765" alpha="0.6999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" name="Secondary_Text"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-
                                 </subviews>
                             </stackView>
-
                         </subviews>
-
+                        <color key="backgroundColor" name="Card_Background"/>
                         <constraints>
-                            <constraint firstItem="xCV-p8-ZY5" firstAttribute="top" secondItem="068-ht-JIe" secondAttribute="top" constant="12" id="homeImageTop"/>
-                            <constraint firstItem="xCV-p8-ZY5" firstAttribute="leading" secondItem="068-ht-JIe" secondAttribute="leading" constant="12" id="kYg-lh-iei"/>
-
                             <constraint firstItem="RAV-dY-fT0" firstAttribute="top" secondItem="xCV-p8-ZY5" secondAttribute="bottom" constant="6" id="Bes-h0-WKY"/>
                             <constraint firstItem="RAV-dY-fT0" firstAttribute="centerX" secondItem="xCV-p8-ZY5" secondAttribute="centerX" id="BgE-aj-vSU"/>
-                            <constraint firstItem="RAV-dY-fT0" firstAttribute="leading" secondItem="068-ht-JIe" secondAttribute="leading" constant="0" id="homeLabelLeftEdge"/>
-                            <constraint firstItem="RAV-dY-fT0" firstAttribute="width" constant="76" id="homeLabelWidth"/>
-
                             <constraint firstItem="YlT-1f-9YR" firstAttribute="centerX" secondItem="068-ht-JIe" secondAttribute="centerX" id="WsY-UO-fiv"/>
                             <constraint firstItem="YlT-1f-9YR" firstAttribute="centerY" secondItem="068-ht-JIe" secondAttribute="centerY" id="X7c-0G-Tv6"/>
-                            <constraint firstItem="YlT-1f-9YR" firstAttribute="width" constant="100" id="stackWidth"/>
-
                             <constraint firstItem="YbM-cQ-KsE" firstAttribute="top" secondItem="068-ht-JIe" secondAttribute="top" constant="12" id="awayImageTop"/>
-                            <constraint firstAttribute="trailing" secondItem="YbM-cQ-KsE" secondAttribute="trailing" constant="12" id="svS-oL-ZIf"/>
-
+                            <constraint firstAttribute="trailing" secondItem="Fli-Mo-NTQ" secondAttribute="trailing" id="awayLabelRightEdge"/>
+                            <constraint firstItem="Fli-Mo-NTQ" firstAttribute="width" constant="76" id="awayLabelWidth"/>
+                            <constraint firstItem="xCV-p8-ZY5" firstAttribute="top" secondItem="068-ht-JIe" secondAttribute="top" constant="12" id="homeImageTop"/>
+                            <constraint firstItem="RAV-dY-fT0" firstAttribute="leading" secondItem="068-ht-JIe" secondAttribute="leading" id="homeLabelLeftEdge"/>
+                            <constraint firstItem="RAV-dY-fT0" firstAttribute="width" constant="76" id="homeLabelWidth"/>
+                            <constraint firstItem="xCV-p8-ZY5" firstAttribute="leading" secondItem="068-ht-JIe" secondAttribute="leading" constant="12" id="kYg-lh-iei"/>
                             <constraint firstItem="Fli-Mo-NTQ" firstAttribute="top" secondItem="YbM-cQ-KsE" secondAttribute="bottom" constant="6" id="mX8-g4-jxh"/>
                             <constraint firstItem="Fli-Mo-NTQ" firstAttribute="centerX" secondItem="YbM-cQ-KsE" secondAttribute="centerX" id="pVd-22-MFe"/>
-                            <constraint firstAttribute="trailing" secondItem="Fli-Mo-NTQ" secondAttribute="trailing" constant="0" id="awayLabelRightEdge"/>
-                            <constraint firstItem="Fli-Mo-NTQ" firstAttribute="width" constant="76" id="awayLabelWidth"/>
+                            <constraint firstItem="YlT-1f-9YR" firstAttribute="width" constant="100" id="stackWidth"/>
+                            <constraint firstAttribute="trailing" secondItem="YbM-cQ-KsE" secondAttribute="trailing" constant="12" id="svS-oL-ZIf"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
-
                 </subviews>
             </view>
-
             <constraints>
                 <constraint firstItem="068-ht-JIe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="PcO-bp-p2Z"/>
                 <constraint firstItem="068-ht-JIe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Xmc-fw-9zO"/>
                 <constraint firstAttribute="trailing" secondItem="068-ht-JIe" secondAttribute="trailing" constant="8" id="abg-zm-whI"/>
                 <constraint firstAttribute="bottom" secondItem="068-ht-JIe" secondAttribute="bottom" constant="8" id="jN5-MS-rQn"/>
             </constraints>
-
             <size key="customSize" width="280" height="120"/>
-
             <connections>
-                <outlet property="awayTeamImageView"  destination="YbM-cQ-KsE" id="yZR-1i-Zgx"/>
-                <outlet property="awayTeamNameLabel"  destination="Fli-Mo-NTQ"  id="jCS-1U-rwM"/>
-                <outlet property="cardBackgroundView" destination="068-ht-JIe"  id="baz-Bm-h9S"/>
-                <outlet property="dateLabel"          destination="X6b-ax-UUE"  id="wU2-Gx-eQQ"/>
-                <outlet property="homeTeamImageView"  destination="xCV-p8-ZY5"  id="oec-5y-uJg"/>
-                <outlet property="homeTeamNameLabel"  destination="RAV-dY-fT0"  id="ax7-4B-uMS"/>
-                <outlet property="matchStatusLabel"   destination="fx3-IJ-45s"  id="rpd-fH-hh3"/>
-                <outlet property="scoreOrVsLabel"     destination="Ye8-cf-zcy"  id="Iyf-fG-CW4"/>
-                <outlet property="timeLabel"          destination="OBn-Bw-Mcd"  id="KDN-et-sgV"/>
+                <outlet property="awayTeamImageView" destination="YbM-cQ-KsE" id="yZR-1i-Zgx"/>
+                <outlet property="awayTeamNameLabel" destination="Fli-Mo-NTQ" id="jCS-1U-rwM"/>
+                <outlet property="cardBackgroundView" destination="068-ht-JIe" id="baz-Bm-h9S"/>
+                <outlet property="dateLabel" destination="X6b-ax-UUE" id="wU2-Gx-eQQ"/>
+                <outlet property="homeTeamImageView" destination="xCV-p8-ZY5" id="oec-5y-uJg"/>
+                <outlet property="homeTeamNameLabel" destination="RAV-dY-fT0" id="ax7-4B-uMS"/>
+                <outlet property="matchStatusLabel" destination="fx3-IJ-45s" id="rpd-fH-hh3"/>
+                <outlet property="scoreOrVsLabel" destination="Ye8-cf-zcy" id="Iyf-fG-CW4"/>
+                <outlet property="timeLabel" destination="OBn-Bw-Mcd" id="KDN-et-sgV"/>
             </connections>
+            <point key="canvasLocation" x="139" y="118"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="Accent_Blue">
+            <color red="0.14499999582767487" green="0.3880000114440918" blue="0.92199999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Card_Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary_Text">
+            <color red="0.29399999976158142" green="0.33300000429153442" blue="0.3880000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text_Color">
+            <color red="0.050999999046325684" green="0.10599999874830246" blue="0.16500000655651093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
