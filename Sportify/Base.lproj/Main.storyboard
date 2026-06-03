@@ -172,6 +172,140 @@
             </objects>
             <point key="canvasLocation" x="2156" y="344"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="8iK-S4-5ZF">
+            <objects>
+                <viewController restorationIdentifier="SettingsViewController" storyboardIdentifier="SettingsViewController" id="0nQ-FC-Sg5" customClass="SettingsViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cx4-nI-vYU">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="LANGUAGE" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lang-title">
+                                <rect key="frame" x="16" y="142" width="65.333333333333329" height="14.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="Secondary_Text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lang-card">
+                                <rect key="frame" x="16" y="164.33333333333334" width="361" height="100.66666666666666"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="english-btn">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                        <state key="normal" title="English"/>
+                                        <connections>
+                                            <action selector="englishTapped:" destination="0nQ-FC-Sg5" eventType="touchUpInside" id="eng-act"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lang-div">
+                                        <rect key="frame" x="16" y="50" width="329" height="0.6666666666666643"/>
+                                        <color key="backgroundColor" name="Secondary_Card"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arabic-btn">
+                                        <rect key="frame" x="0.0" y="50.666666666666657" width="361" height="50"/>
+                                        <state key="normal" title="Arabic (العربية)"/>
+                                        <connections>
+                                            <action selector="arabicTapped:" destination="0nQ-FC-Sg5" eventType="touchUpInside" id="arb-act"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="Card_Background"/>
+                                <constraints>
+                                    <constraint firstItem="arabic-btn" firstAttribute="height" constant="50" id="arb-h"/>
+                                    <constraint firstItem="arabic-btn" firstAttribute="leading" secondItem="lang-card" secondAttribute="leading" id="arb-l"/>
+                                    <constraint firstAttribute="trailing" secondItem="arabic-btn" secondAttribute="trailing" id="arb-r"/>
+                                    <constraint firstItem="arabic-btn" firstAttribute="top" secondItem="lang-div" secondAttribute="bottom" id="arb-t"/>
+                                    <constraint firstAttribute="bottom" secondItem="arabic-btn" secondAttribute="bottom" id="card-b"/>
+                                    <constraint firstItem="lang-div" firstAttribute="height" constant="0.5" id="div-h"/>
+                                    <constraint firstItem="lang-div" firstAttribute="leading" secondItem="lang-card" secondAttribute="leading" constant="16" id="div-l"/>
+                                    <constraint firstAttribute="trailing" secondItem="lang-div" secondAttribute="trailing" constant="16" id="div-r"/>
+                                    <constraint firstItem="lang-div" firstAttribute="top" secondItem="english-btn" secondAttribute="bottom" id="div-t"/>
+                                    <constraint firstItem="english-btn" firstAttribute="height" constant="50" id="eng-h"/>
+                                    <constraint firstItem="english-btn" firstAttribute="leading" secondItem="lang-card" secondAttribute="leading" id="eng-l"/>
+                                    <constraint firstAttribute="trailing" secondItem="english-btn" secondAttribute="trailing" id="eng-r"/>
+                                    <constraint firstItem="english-btn" firstAttribute="top" secondItem="lang-card" secondAttribute="top" id="eng-t"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="APPEARANCE" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="app-title">
+                                <rect key="frame" x="16" y="289" width="79.333333333333329" height="14.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="Secondary_Text"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="app-card">
+                                <rect key="frame" x="16" y="311.33333333333331" width="361" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="moon.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="moon-icon">
+                                        <rect key="frame" x="16" y="13.666666666666666" width="22" height="22.666666666666671"/>
+                                        <color key="tintColor" name="Accent_Blue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="moon-h"/>
+                                            <constraint firstAttribute="width" constant="22" id="moon-w"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Dark Mode" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dark-lbl">
+                                        <rect key="frame" x="49.999999999999993" y="15.333333333333369" width="79.333333333333314" height="19.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" name="Text_Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dark-toggle">
+                                        <rect key="frame" x="284" y="11" width="63" height="28"/>
+                                        <color key="onTintColor" name="Accent_Blue"/>
+                                        <connections>
+                                            <action selector="darkModeSwitchToggled:" destination="0nQ-FC-Sg5" eventType="valueChanged" id="tog-act"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" name="Card_Background"/>
+                                <constraints>
+                                    <constraint firstItem="dark-lbl" firstAttribute="centerY" secondItem="app-card" secondAttribute="centerY" id="lbl-cy"/>
+                                    <constraint firstItem="dark-lbl" firstAttribute="leading" secondItem="moon-icon" secondAttribute="trailing" constant="12" id="lbl-l"/>
+                                    <constraint firstItem="moon-icon" firstAttribute="centerY" secondItem="app-card" secondAttribute="centerY" id="moon-cy"/>
+                                    <constraint firstItem="moon-icon" firstAttribute="leading" secondItem="app-card" secondAttribute="leading" constant="16" id="moon-l"/>
+                                    <constraint firstItem="dark-toggle" firstAttribute="centerY" secondItem="app-card" secondAttribute="centerY" id="tog-cy"/>
+                                    <constraint firstAttribute="trailing" secondItem="dark-toggle" secondAttribute="trailing" constant="16" id="tog-r"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BUP-kn-O6G"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="app-card" firstAttribute="height" constant="50" id="ac-h"/>
+                            <constraint firstItem="app-card" firstAttribute="leading" secondItem="BUP-kn-O6G" secondAttribute="leading" constant="16" id="ac-l"/>
+                            <constraint firstItem="BUP-kn-O6G" firstAttribute="trailing" secondItem="app-card" secondAttribute="trailing" constant="16" id="ac-r"/>
+                            <constraint firstItem="app-card" firstAttribute="top" secondItem="app-title" secondAttribute="bottom" constant="8" id="ac-t"/>
+                            <constraint firstItem="app-title" firstAttribute="leading" secondItem="BUP-kn-O6G" secondAttribute="leading" constant="16" id="at-l"/>
+                            <constraint firstItem="app-title" firstAttribute="top" secondItem="lang-card" secondAttribute="bottom" constant="24" id="at-t"/>
+                            <constraint firstItem="lang-card" firstAttribute="leading" secondItem="BUP-kn-O6G" secondAttribute="leading" constant="16" id="lc-l"/>
+                            <constraint firstItem="BUP-kn-O6G" firstAttribute="trailing" secondItem="lang-card" secondAttribute="trailing" constant="16" id="lc-r"/>
+                            <constraint firstItem="lang-card" firstAttribute="top" secondItem="lang-title" secondAttribute="bottom" constant="8" id="lc-t"/>
+                            <constraint firstItem="lang-title" firstAttribute="leading" secondItem="BUP-kn-O6G" secondAttribute="leading" constant="16" id="lt-l"/>
+                            <constraint firstItem="lang-title" firstAttribute="top" secondItem="BUP-kn-O6G" secondAttribute="top" constant="24" id="lt-t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="set-nav"/>
+                    <connections>
+                        <outlet property="arabicCheckmark" destination="arabic-btn" id="out-arb"/>
+                        <outlet property="darkModeSwitch" destination="dark-toggle" id="out-tog"/>
+                        <outlet property="englishCheckmark" destination="english-btn" id="out-eng"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lh-5R-QLm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2186" y="-1063"/>
+        </scene>
         <!--Sports-->
         <scene sceneID="B5u-Hx-r4H">
             <objects>
@@ -722,16 +856,17 @@
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.slash.circle" catalog="system" width="128" height="123"/>
+        <image name="moon.fill" catalog="system" width="128" height="123"/>
         <image name="onboarding1" width="198.66667175292969" height="167"/>
         <image name="tennisball" catalog="system" width="128" height="123"/>
         <namedColor name="Accent_Blue">
-            <color red="0.14509803921568626" green="0.38823529411764707" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.14499999582767487" green="0.3880000114440918" blue="0.92199999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Accent_Purple">
-            <color red="0.48627450980392156" green="0.22745098039215686" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.48600000143051147" green="0.22699999809265137" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Accent_Red">
-            <color red="0.86274509803921573" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.86299997568130493" green="0.14900000393390656" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Background">
             <color red="0.94900000095367432" green="0.9570000171661377" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -740,10 +875,10 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Nav_Background">
-            <color red="0.94901960784313721" green="0.95686274509803915" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.9570000171661377" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Secondary_Card">
-            <color red="0.93333333333333335" green="0.94509803921568625" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.93300002813339233" green="0.94499999284744263" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Secondary_Text">
             <color red="0.29411764705882354" green="0.33333333333333331" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
