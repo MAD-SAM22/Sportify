@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  Sportify
+
+  Created by Mina_Wagdy on 04/06/2026.
+  
+*/
+"sports_title" = "Sports";
+"favorites_title" = "Favorites";
+"basketball" = "Basketball";
+"soccer" = "Soccer";
+"tennis" = "Tennis";
+"cricket" = "Cricket";
+"error_title" = "Error";
+"ok_button" = "OK";
+/* Alerts */
+"no_internet_title" = "No Internet Connection";
+"no_internet_msg" = "Please check your network connection and try again.";
+"cancel" = "Cancel";
+"remove" = "Remove";
+
+/* Screens & Tabs */
+"league_title" = "Leagues";
+"league_details_title" = "League Details";
+"upcoming_tab" = "Upcoming";
+"recent_tab" = "Recent";
+
+/* Team Details */
+"founded_lbl" = "Founded:";
+"stadium_lbl" = "Stadium:";
+"country_lbl" = "Country:";
+"not_available" = "N/A";
+"unknown_team" = "Unknown";
+"about_team_title" = "About the Team";
+"players_title" = "Players";
+"team_desc_placeholder" = "A historic team from %@, founded in %@, playing at %@.";
+
+/* Favorites Screen */
+"favorites_empty_msg" = "Tap the heart icon on any league\nto save it here for quick access.";
+"remove_league_title" = "Remove League";
+"remove_league_msg" = "Are you sure you want to remove this league from your favorites?";

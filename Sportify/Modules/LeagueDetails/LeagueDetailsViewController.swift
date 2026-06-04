@@ -23,9 +23,11 @@ class LeagueDetailsViewController: UIViewController {
         presenter = LeagueDetailsPresenter(view: self)
         presenter.selectedLeague = selectedLeague
         presenter.selectedSport = selectedSport
-        setupAppNavigationBar(withTitle: "League Details")
+        let localizedLeagueDetailsTitle = NSLocalizedString(
+            "league_details_title", comment: "Title for league details screen")
+        setupAppNavigationBar(withTitle: localizedLeagueDetailsTitle)
         setupCollectionView()
-
+        self.tabBarItem.title = localizedLeagueDetailsTitle
         // Tell the presenter the view is ready
         presenter.viewDidLoad()
     }
@@ -71,9 +73,9 @@ extension LeagueDetailsViewController: LeagueDetailsViewProtocol {
     }
     func showUnfavoriteConfirmationAlert() {
         self.showDestructiveAlert(
-            title: "Remove League",
-            message:
-                "Are you sure you want to remove this league from your favorites?",
+            title: NSLocalizedString("remove_league_title", comment: ""),
+            message: NSLocalizedString("remove_league_msg", comment: ""),
+            confirmTitleKey: "remove",
             confirmAction: { [weak self] in
                 self?.presenter.confirmUnfavorite()
             }
@@ -259,7 +261,9 @@ extension LeagueDetailsViewController: UICollectionViewDataSource {
                 cell.hideSkeleton()
 
                 if let team = presenter.getTeam(at: indexPath.row) {
-                    cell.teamNameLabel.text = team.teamName ?? "Unknown"
+                    cell.teamNameLabel.text =
+                        team.teamName
+                        ?? NSLocalizedString("unknown_team", comment: "")
                     if let logoString = team.teamLogo,
                         let url = URL(string: logoString)
                     {
@@ -282,7 +286,11 @@ extension LeagueDetailsViewController: UICollectionViewDataSource {
                 collectionView.dequeueReusableCell(
                     withReuseIdentifier: "TabControlCell", for: indexPath)
                 as! TabControlCollectionViewCell
-            cell.configure(title: indexPath.row == 0 ? "Recent" : "Upcoming")
+            let tabTitle =
+                indexPath.row == 0
+                ? NSLocalizedString("recent_tab", comment: "")
+                : NSLocalizedString("upcoming_tab", comment: "")
+            cell.configure(title: tabTitle)
 
             if indexPath.row == presenter.getSelectedTabIndex() {
                 collectionView.selectItem(
@@ -291,9 +299,10 @@ extension LeagueDetailsViewController: UICollectionViewDataSource {
             return cell
 
         case 2:
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: GameCollectionViewCell.identifier,
-                for: indexPath) as! GameCollectionViewCell
+            let cell =
+                collectionView.dequeueReusableCell(
+                    withReuseIdentifier: GameCollectionViewCell.identifier,
+                    for: indexPath) as! GameCollectionViewCell
 
             if presenter.isLoading {
                 cell.showAnimatedGradientSkeleton()
@@ -301,7 +310,8 @@ extension LeagueDetailsViewController: UICollectionViewDataSource {
                 cell.hideSkeleton()
 
                 if let game = presenter.getGame(at: indexPath.row) {
-                    let matchState = presenter.getCurrentMatchState(for: indexPath.row)
+                    let matchState = presenter.getCurrentMatchState(
+                        for: indexPath.row)
                     cell.configure(with: game, state: matchState)
                 }
             }
@@ -329,25 +339,6 @@ extension LeagueDetailsViewController: UICollectionViewDelegate {
 
         default:
             break
-        }
-    }
-}
-
-extension UIViewController {
-    func showDestructiveAlert(title: String, message: String, confirmAction: @escaping () -> Void) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let deleteAction = UIAlertAction(title: "Remove", style: .destructive) { _ in
-            confirmAction()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
-        
-        // FIX: Changed 'bundle: nil' to 'completion: nil'
-        DispatchQueue.main.async {
-            self.present(alert, animated: true, completion: nil)
         }
     }
 }

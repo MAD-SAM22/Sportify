@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  Sportify
+
+  Created by Mina_Wagdy on 04/06/2026.
+  
+*/
+"sports_title" = "الرياضات";
+"favorites_title" = "المفضلة";
+"basketball" = "كرة السلة";
+"soccer" = "كرة القدم";
+"tennis" = "التنس";
+"cricket" = "الكريكيت";
+"error_title" = "خطأ";
+"ok_button" = "موافق";
+/* Alerts */
+"no_internet_title" = "لا يوجد اتصال بالإنترنت";
+"no_internet_msg" = "يرجى التحقق من اتصال الشبكة والمحاولة مرة أخرى.";
+"cancel" = "إلغاء";
+"remove" = "إزالة";
+
+/* Screens & Tabs */
+"league_title" = "الدوريات";
+"league_details_title" = "تفاصيل الدوري";
+"upcoming_tab" = "القادمة";
+"recent_tab" = "الأخيرة";
+
+/* Team Details */
+"founded_lbl" = "التأسيس:";
+"stadium_lbl" = "الملعب:";
+"country_lbl" = "البلد:";
+"not_available" = "غير متوفر";
+"unknown_team" = "غير معروف";
+"about_team_title" = "عن الفريق";
+"players_title" = "اللاعبون";
+"team_desc_placeholder" = "فريق عريق من %@، تأسس في %@، ويلعب في %@.";
+
+/* Favorites Screen */
+"favorites_empty_msg" = "اضغط على أيقونة القلب في أي دوري\nلحفظه هنا للوصول السريع.";
+"remove_league_title" = "إزالة الدوري";
+"remove_league_msg" = "هل أنت متأكد أنك تريد إزالة هذا الدوري من المفضلة؟";

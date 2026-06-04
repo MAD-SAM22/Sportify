@@ -48,7 +48,9 @@ class TeamDetailsViewController: UIViewController {
 
     // MARK: - Setup
     private func setupUI() {
-        view.backgroundColor = UIColor(named: "Background") ?? UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
+        view.backgroundColor =
+            UIColor(named: "Background")
+            ?? UIColor(red: 0.08, green: 0.10, blue: 0.18, alpha: 1)
         scrollView.backgroundColor = .clear
         scrollView.showsVerticalScrollIndicator = false
         contentStackView.axis = .vertical
@@ -56,8 +58,6 @@ class TeamDetailsViewController: UIViewController {
         contentStackView.alignment = .fill
         contentStackView.distribution = .fill
     }
-
-
 
     // MARK: - Build Static Sections
     // These sections are always shown — data filled in by presenter callbacks
@@ -122,42 +122,60 @@ class TeamDetailsViewController: UIViewController {
             view?.hideSkeleton()
         }
     }
-    
 
 }
 
 // MARK: - TeamDetailsViewProtocol
 extension TeamDetailsViewController: TeamDetailsViewProtocol {
-    
-
 
     func updateLineup(formation: [[(name: String, imageURL: String?)]]) {
         lineupView?.configure(formation: formation)
     }
-    
+
     func showTeamDetails(_ team: Team) {
-        // Update title
-        title = team.teamName ?? "Team Details"
+        // Update title (Use a localized default if name is missing)
+        title =
+            team.teamName
+            ?? NSLocalizedString("team_details_title", comment: "")
 
         // Header - Now passing the URL string directly!
         headerView.configure(
-            teamName: team.teamName ?? "Team Name",
+            teamName: team.teamName
+                ?? NSLocalizedString("unknown_team", comment: ""),
             bannerImage: UIImage(named: "team_banner"),
             logoURL: team.teamLogo
         )
 
-        // Info cards
+        // Info cards - passing our "N/A" localization if data is missing
+        let notAvailable = NSLocalizedString("not_available", comment: "")
         infoCardsView.configure(
-            country: team.teamCountry ?? "N/A",
-            stadium: team.venueName ?? "N/A",
-            founded: team.teamFounded ?? "N/A"
+            country: team.teamCountry ?? notAvailable,
+            stadium: team.venueName ?? notAvailable,
+            founded: team.teamFounded ?? notAvailable
         )
 
-        // About - API doesn't provide, so keeping the placeholder
-        aboutView.configure(
-            description:
-                "A historic team from \(team.teamCountry ?? "unknown country"), founded in \(team.teamFounded ?? "N/A"), playing at \(team.venueName ?? "N/A")."
-        )
+        // About - localized string formatting
+        let country =
+            team.teamCountry ?? NSLocalizedString("unknown_team", comment: "")
+        let founded = team.teamFounded ?? notAvailable
+        let stadium = team.venueName ?? notAvailable
+
+        let descFormat = NSLocalizedString("team_desc_placeholder", comment: "")
+
+        // Use String(format:) if your localized string has %@ placeholders, OR
+        // since we just have a static string in the localizations from Step 7:
+        if descFormat.contains("%@") {
+            // If you updated the strings file to use formatting
+            aboutView.configure(
+                description: String(
+                    format: descFormat, country, founded, stadium))
+        } else {
+            // If using the simple string we added in Step 7
+            aboutView.configure(
+                description:
+                    "A historic team from \(country), founded in \(founded), playing at \(stadium)."
+            )
+        }
     }
 
     func showPlayers(_ players: [Player]) {
@@ -186,8 +204,15 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
 
     func showError(_ message: String) {
         let alert = UIAlertController(
-            title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+            title: NSLocalizedString("error_title", comment: ""),
+            message: message,
+            preferredStyle: .alert
+        )
+        alert.addAction(
+            UIAlertAction(
+                title: NSLocalizedString("ok_button", comment: ""),
+                style: .default
+            ))
         present(alert, animated: true)
     }
 }
