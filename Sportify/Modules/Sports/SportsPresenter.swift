@@ -19,32 +19,29 @@ class SportsPresenter: SportsPresenterProtocol {
     }
     
     func viewDidLoad() {
-        
-        sports = [
             
-            Sport(
-                sportName: "Basketball",
-                sportThumb: "basketball_img"
-            ),
+            sports = [
+                Sport(
+                    // Using localized strings for the data models
+                    sportName: NSLocalizedString("basketball", comment: ""),
+                    sportThumb: "basketball_img"
+                ),
+                Sport(
+                    sportName: NSLocalizedString("soccer", comment: ""),
+                    sportThumb: "soccer_img"
+                ),
+                Sport(
+                    sportName: NSLocalizedString("tennis", comment: ""),
+                    sportThumb: "tennis_img"
+                ),
+                Sport(
+                    sportName: NSLocalizedString("cricket", comment: ""),
+                    sportThumb: "cricket_img"
+                )
+            ]
             
-            Sport(
-                sportName: "Soccer",
-                sportThumb: "soccer_img"
-            ),
-            
-            Sport(
-                sportName: "Tennis",
-                sportThumb: "tennis_img"
-            ),
-            
-            Sport(
-                sportName: "Cricket",
-                sportThumb: "cricket_img"
-            )
-        ]
-        
-        view?.showSports(sports)
-    }
+            view?.showSports(sports)
+        }
     
     func didSelectSport(at index: Int) {
         if ReachabilityManager.shared.isConnectedToInternet{

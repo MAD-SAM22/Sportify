@@ -1,0 +1,6 @@
+
+/* Class = "UILabel"; text = "Team description goes here. This label will expand based on content."; ObjectID = "about-desc-id"; */
+"about-desc-id.text" = "Team description goes here. This label will expand based on content.";
+
+/* Class = "UILabel"; text = "About the Team"; ObjectID = "about-title-id"; */
+"about-title-id.text" = "About the Team";

@@ -1,0 +1,17 @@
+/* Class = "UILabel"; text = "Country:"; ObjectID = "country-key-id"; */
+"country-key-id.text" = "البلد:";
+
+/* Class = "UILabel"; text = "England"; ObjectID = "country-value-id"; */
+"country-value-id.text" = "إنجلترا";
+
+/* Class = "UILabel"; text = "Founded:"; ObjectID = "founded-key-id"; */
+"founded-key-id.text" = "التأسيس:";
+
+/* Class = "UILabel"; text = "1905"; ObjectID = "founded-value-id"; */
+"founded-value-id.text" = "1905";
+
+/* Class = "UILabel"; text = "Stadium:"; ObjectID = "stadium-key-id"; */
+"stadium-key-id.text" = "الملعب:";
+
+/* Class = "UILabel"; text = "Stamford Bridge"; ObjectID = "stadium-value-id"; */
+"stadium-value-id.text" = "ستامفورد بريدج";

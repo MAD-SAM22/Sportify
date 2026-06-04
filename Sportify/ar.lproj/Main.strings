@@ -1,0 +1,62 @@
+/* Class = "UILabel"; text = "No Favorites yet"; ObjectID = "6Dw-oo-sK9"; */
+"6Dw-oo-sK9.text" = "لا توجد مفضلة بعد";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "BTi-1h-r9Y"; */
+"BTi-1h-r9Y.text" = "تسمية";
+
+/* Class = "UINavigationItem"; title = "Sports"; ObjectID = "Dan-7G-yZI"; */
+"Dan-7G-yZI.title" = "الرياضات";
+
+/* Class = "UILabel"; text = "Team Name"; ObjectID = "GzZ-5S-cEl"; */
+"GzZ-5S-cEl.text" = "اسم الفريق";
+
+/* Class = "UILabel"; text = "Recent"; ObjectID = "HbT-pp-0Zy"; */
+"HbT-pp-0Zy.text" = "الأخيرة";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JIZ-Xa-Awi"; */
+"JIZ-Xa-Awi.text" = "تسمية";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "UDd-3j-dQe"; */
+"UDd-3j-dQe.text" = "العنوان";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "Uku-yO-bIb"; */
+"Uku-yO-bIb.title" = "عنصر";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "a5B-tz-aFV"; */
+"a5B-tz-aFV.text" = "تسمية";
+
+/* Class = "UILabel"; text = "APPEARANCE"; ObjectID = "app-title"; */
+"app-title.text" = "المظهر";
+
+/* Class = "UIButton"; normalTitle = "Arabic (العربية)"; ObjectID = "arabic-btn"; */
+"arabic-btn.normalTitle" = "العربية";
+
+/* Class = "UILabel"; text = "Dark Mode"; ObjectID = "dark-lbl"; */
+"dark-lbl.text" = "الوضع الداكن";
+
+/* Class = "UIButton"; normalTitle = "English"; ObjectID = "english-btn"; */
+"english-btn.normalTitle" = "الإنجليزية";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "l0j-AL-ZPD"; */
+"l0j-AL-ZPD.text" = "تسمية";
+
+/* Class = "UILabel"; text = "LANGUAGE"; ObjectID = "lang-title"; */
+"lang-title.text" = "اللغة";
+
+/* Class = "UIButton"; configuration.title = "Next"; ObjectID = "p1C-FN-k4I"; */
+"p1C-FN-k4I.configuration.title" = "التالي";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "p1C-FN-k4I"; */
+"p1C-FN-k4I.normalTitle" = "زر";
+
+/* Class = "UILabel"; text = "Tap the heart on any league to save it here"; ObjectID = "p43-tj-ZeC"; */
+"p43-tj-ZeC.text" = "اضغط على القلب في أي دوري لحفظه هنا";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "set-nav"; */
+"set-nav.title" = "الإعدادات";
+
+/* Class = "UIButton"; configuration.title = "SKIP"; ObjectID = "zo9-gI-6ua"; */
+"zo9-gI-6ua.configuration.title" = "تخطي";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "zo9-gI-6ua"; */
+"zo9-gI-6ua.normalTitle" = "زر";

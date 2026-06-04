@@ -24,7 +24,13 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
         presenter = FavoritesPresenter(view: self)
         setupUI()
-        setupAppNavigationBar(withTitle: "Favorites")
+        // 1. Localize the Navigation Bar Title
+        let localizedFavoriteTitle = NSLocalizedString(
+            "favorites_title", comment: "Title for favorites screen")
+        setupAppNavigationBar(withTitle: localizedFavoriteTitle)
+
+        // 2. Localize the Tab Bar Item Title
+        self.tabBarItem.title = localizedFavoriteTitle
         setupTableView()
         presenter.viewDidLoad()
     }
@@ -34,9 +40,9 @@ class FavoritesViewController: UIViewController {
     }
     // MARK: - Setup
     private func setupUI() {
-        title = "Favorites"
-        emptySubtitleLabel.text =
-            "Tap the heart icon on any league\nto save it here for quick access."
+        title = NSLocalizedString("favorites_title", comment: "")
+        emptySubtitleLabel.text = NSLocalizedString(
+            "favorites_empty_msg", comment: "")
     }
 
     private func setupTableView() {
@@ -148,13 +154,14 @@ extension FavoritesViewController: UITableViewDelegate {
     ) -> UISwipeActionsConfiguration? {
 
         let deleteAction = UIContextualAction(
-            style: .destructive, title: "Remove"
+            style: .destructive,
+            title: NSLocalizedString("remove", comment: "")  // Localized "Remove"
         ) { [weak self] _, _, completion in
 
             self?.showDestructiveAlert(
-                title: "Remove League",
-                message:
-                    "Are you sure you want to remove this league from your favorites?",
+                title: NSLocalizedString("remove_league_title", comment: ""),
+                message: NSLocalizedString("remove_league_msg", comment: ""),
+                confirmTitleKey: "remove",  // Passing the key for our updated alert function
                 confirmAction: {
                     // Triggered if user taps "Remove"
                     self?.presenter.didDeleteLeague(at: indexPath.row)
