@@ -78,6 +78,32 @@ class NetworkManager {
             }
         }
     }
+    func searchLeagues(
+        query: String,
+        for sport: String,
+        completion: @escaping (Result<[League], Error>) -> Void
+    ) {
+        // If query is empty, just fetch everything or return early
+        guard !query.isEmpty else {
+            fetchLeagues(for: sport, completion: completion)
+            return
+        }
+        
+        // Add the appropriate query key depending on your API documentation (e.g., "league_name" or "search")
+        let params: [String: Any] = [
+            "met": APIConstants.Method.leagues,
+            "league_name": query
+        ]
+        
+        request(sport: sport, parameters: params) { (result: Result<LeaguesResponse, Error>) in
+            switch result {
+            case .success(let response):
+                completion(.success(response.result ?? []))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     
     // MARK: - ② Fetch Upcoming Events
     func fetchUpcomingEvents(

@@ -5,6 +5,7 @@
 //  Created by Osama Hosam on 22/05/2026.
 //
 import Foundation
+import Combine
 
 class LeaguesPresenter: LeaguesPresenterProtocol {
 
@@ -12,24 +13,54 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
 
     var selectedSport: Sport?
 
+    private var allLeagues: [League] = []
     private var leagues: [League] = []
     var isLoading: Bool = true
-
+    
+    private var searchSubject = PassthroughSubject<String, Never>()
+    private var cancellables = Set<AnyCancellable>()
+    
     init(view: LeaguesViewProtocol) {
-
         self.view = view
+        setupSearchDebounce()
     }
 
     func viewDidLoad() {
         guard let sport = selectedSport?.sportName else { return }
         self.isLoading = true
+        fetchLeagues(sport: sport)
         self.view?.showLeagues([])
+
+    }
+    func updateSearchQuery(_ query: String) {
+            searchSubject.send(query)
+        }
+    private func setupSearchDebounce() {
+        searchSubject
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            .removeDuplicates()
+            .sink { [weak self] query in
+                guard let self = self else { return }
+                if query.trimmingCharacters(in: .whitespaces).isEmpty {
+                    self.leagues = self.allLeagues
+                } else {
+                    self.leagues = self.allLeagues.filter {
+                        $0.leagueName?.lowercased().contains(query.lowercased()) ?? false
+                    }
+                }
+                self.view?.showLeagues(self.leagues)
+            }
+            .store(in: &cancellables)
+    }
+    
+    func fetchLeagues(sport : String , ){
         NetworkManager.shared.fetchLeagues(for: sport) { [weak self] result in
             DispatchQueue.main.async {
                 self?.isLoading = false
                 switch result {
                 case .success(let leagues):
                     self?.leagues = leagues
+                    self?.allLeagues = leagues
                     self?.view?.showLeagues(leagues)
                 case .failure(let error):
                     self?.view?.showError(error.localizedDescription)
@@ -38,7 +69,6 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
         }
 
     }
-
     func didSelectLeague(at index: Int) {
         if ReachabilityManager.shared.isConnectedToInternet {
             let selected = leagues[index]

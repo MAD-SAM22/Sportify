@@ -11,6 +11,7 @@ class LeaguesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var searchBar: UISearchBar!
     var presenter: LeaguesPresenterProtocol!
     var selectedSport: Sport?
     private var leagues: [League] = []
@@ -22,7 +23,8 @@ class LeaguesViewController: UIViewController {
         presenter.selectedSport = selectedSport
 
         setupTableView()
-        setupNavigationBar()
+        setupSearchBar()
+        setupAppNavigationBar(withTitle: "Leagues")
 
         presenter.viewDidLoad()
     }
@@ -33,32 +35,22 @@ class LeaguesViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.rowHeight = 80
-//        view.backgroundColor = UIColor(named: "Background")
     }
-
-    private func setupNavigationBar() {
-            title = selectedSport?.sportName ?? "Leagues"
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            
-            appearance.backgroundColor = UIColor(named: "Nav_Background")
-            
-            
-            appearance.titleTextAttributes = [
-                .foregroundColor: UIColor(named: "Text_Color") ?? .white,
-                .font: UIFont.boldSystemFont(ofSize: 20)
-            ]
-            
-            navigationController?.navigationBar.standardAppearance = appearance
-            navigationController?.navigationBar.scrollEdgeAppearance = appearance
-            navigationController?.navigationBar.tintColor = UIColor(named: "Accent_Blue") ?? .systemBlue
+    private func setupSearchBar() {
+            searchBar.delegate = self
         }
+  
 }
-
+extension LeaguesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        presenter.updateSearchQuery(searchText)
+    }
+}
 extension LeaguesViewController: LeaguesViewProtocol {
 
     func showLeagues(_ leagues: [League]) {
         self.leagues = leagues
+
         tableView.reloadData()
     }
 
@@ -95,6 +87,7 @@ extension LeaguesViewController: UITableViewDataSource, UITableViewDelegate {
             // 2. Hide the skeleton layer and push the real data
             cell.hideSkeleton()
             cell.configure(with: leagues[indexPath.row])
+            
         }
         
         return cell
