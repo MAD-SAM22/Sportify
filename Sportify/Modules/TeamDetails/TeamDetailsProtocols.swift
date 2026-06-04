@@ -13,6 +13,7 @@ protocol TeamDetailsViewProtocol: AnyObject {
     func showError(_ message: String)
     func showLoadingState()
     func hideLoadingState()
+    func updateLineup(formation: [[(name: String, imageURL: String?)]])
 }
 
 protocol TeamDetailsPresenterProtocol: AnyObject {
@@ -20,5 +21,7 @@ protocol TeamDetailsPresenterProtocol: AnyObject {
     var sport: String { get set }
     func viewDidLoad()
     func getFormation() -> [[String]]
+    func updateLineup(formation: [[(name: String, imageURL: String?)]])
     func shouldShowLineup() -> Bool
+    func getFormation() -> [[(name: String, imageURL: String?)]]
 }

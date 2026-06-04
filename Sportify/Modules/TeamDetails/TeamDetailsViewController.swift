@@ -91,13 +91,10 @@ class TeamDetailsViewController: UIViewController {
     }
 
     private func addLineupView() {
-        guard lineupView == nil else { return }  // prevent adding twice
+        guard lineupView == nil else { return }
         let lineup = TeamLineupView.loadFromNib()
         lineup.translatesAutoresizingMaskIntoConstraints = false
-        lineup.configure(
-            formation: presenter.getFormation(),
-            playerImages: []
-        )
+        lineup.configure(formation: presenter.getFormation())
         contentStackView.addArrangedSubview(lineup)
         lineup.heightAnchor.constraint(equalToConstant: 500).isActive = true
         lineupView = lineup
@@ -125,11 +122,19 @@ class TeamDetailsViewController: UIViewController {
             view?.hideSkeleton()
         }
     }
+    
+
 }
 
 // MARK: - TeamDetailsViewProtocol
 extension TeamDetailsViewController: TeamDetailsViewProtocol {
+    
 
+
+    func updateLineup(formation: [[(name: String, imageURL: String?)]]) {
+        lineupView?.configure(formation: formation)
+    }
+    
     func showTeamDetails(_ team: Team) {
         // Update title
         title = team.teamName ?? "Team Details"
