@@ -59,9 +59,14 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
                 self?.isLoading = false
                 switch result {
                 case .success(let leagues):
-                    self?.leagues = leagues
-                    self?.allLeagues = leagues
-                    self?.view?.showLeagues(leagues)
+                    let sorted = leagues.sorted {
+                        let firstHasImage = !($0.leagueLogo ?? "").isEmpty && URL(string: $0.leagueLogo!)?.pathExtension != ""
+                        let secondHasImage = !($1.leagueLogo ?? "").isEmpty && URL(string: $1.leagueLogo!)?.pathExtension != ""
+                        return firstHasImage && !secondHasImage
+                    }
+                    self?.allLeagues = sorted
+                    self?.leagues = sorted
+                    self?.view?.showLeagues(sorted)
                 case .failure(let error):
                     self?.view?.showError(error.localizedDescription)
                 }
