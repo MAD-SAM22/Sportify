@@ -12,10 +12,11 @@ class SportsPresenter: SportsPresenterProtocol {
     weak var view: SportsViewProtocol?
     
     private var sports: [Sport] = []
-    
-    init(view: SportsViewProtocol) {
-        
+    private let reachability: ReachabilityManager
+
+    init(view: SportsViewProtocol, reachability: ReachabilityManager = .shared) {
         self.view = view
+        self.reachability = reachability
     }
     
     func viewDidLoad() {
