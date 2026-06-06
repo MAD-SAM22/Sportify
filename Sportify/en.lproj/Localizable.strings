@@ -39,3 +39,18 @@
 "favorites_empty_msg" = "Tap the heart icon on any league\nto save it here for quick access.";
 "remove_league_title" = "Remove League";
 "remove_league_msg" = "Are you sure you want to remove this league from your favorites?";
+
+
+"onboarding_title_1" = "Join tournaments, academies\n& book your coach!";
+"onboarding_desc_1" = "Our ultimate app streamlines joining multiple tournaments at your convenience. Easily join academies and book coaches within your budget with just one click to unlock your full potential.";
+
+"onboarding_title_2" = "Empower Athletes by creating\na diverse sports academy!";
+"onboarding_desc_2" = "Through our app, you can create and expand athletic academies and empower potential athletes. Easily create multiple classes under one academy to grow and improve business performance.";
+
+"onboarding_title_3" = "Register as a Coach today\nto Train Athletes!";
+"onboarding_desc_3" = "Register as a coach via our app to enhance athlete skills. Also, you can directly connect with athletes and access their contact details.";
+
+
+
+"no_internet_message" = "No internet connection. Please check your network and try again.";
+

@@ -23,17 +23,21 @@ class OnboardingPresenter: OnboardingPresenterProtocol {
     
     private func setupSlides() {
         slides = [
-            OnboardingSlide(title: "Join tournaments, academies\n& book your coach!",
-                            description: "Our ultimate app streamlines joining multiple tournaments at your convenience. Easily join academies and book coaches within your budget with just one click to unlock your full potential.",
-                            imageName: "onboarding1"),
-            
-            OnboardingSlide(title: "Empower Athletes by creating\na diverse sports academy!",
-                            description: "Through our app, you can create and expand athletic academies and empower potential athletes. Easily create multiple classes under one academy to grow and improve business performance.",
-                            imageName: "onboarding2"),
-            
-            OnboardingSlide(title: "Register as a Coach today\nto Train Athletes!",
-                            description: "Register as a coach via our app to enhance athlete skills. Also, you can directly connect with athletes and access their contact details.",
-                            imageName: "onboarding3")
+            OnboardingSlide(
+                title: NSLocalizedString("onboarding_title_1", comment: ""),
+                description: NSLocalizedString("onboarding_desc_1", comment: ""),
+                imageName: "onboarding1"
+            ),
+            OnboardingSlide(
+                title: NSLocalizedString("onboarding_title_2", comment: ""),
+                description: NSLocalizedString("onboarding_desc_2", comment: ""),
+                imageName: "onboarding2"
+            ),
+            OnboardingSlide(
+                title: NSLocalizedString("onboarding_title_3", comment: ""),
+                description: NSLocalizedString("onboarding_desc_3", comment: ""),
+                imageName: "onboarding3"
+            )
         ]
     }
     

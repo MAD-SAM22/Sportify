@@ -56,12 +56,15 @@ struct APIConstants {
 
 // MARK: - Network Errors
 enum NetworkError: LocalizedError {
+    case noInternet
     case noData
     case invalidURL
     case decodingFailed
 
     var errorDescription: String? {
         switch self {
+        case .noInternet:
+                    return NSLocalizedString("no_internet_message", comment: "")
         case .noData: return "No data returned from server."
         case .invalidURL: return "Invalid URL."
         case .decodingFailed: return "Failed to decode response."

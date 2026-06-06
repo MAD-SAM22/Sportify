@@ -35,8 +35,15 @@ class NetworkManager {
     private func request<T: Decodable>(
         sport: String,
         parameters: [String: Any],
+        retryCount: Int = 3,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
+        
+        guard NetworkReachabilityManager()?.isReachable == true else {
+            completion(.failure(NetworkError.noInternet))
+            return
+        }
+        
         var params = parameters
         params["APIkey"] = apiKey
         
@@ -60,8 +67,22 @@ class NetworkManager {
                 case .success(let data):
                     completion(.success(data))
                 case .failure(let error):
-                    print("❌ Error: \(error.localizedDescription)")
-                    completion(.failure(error))
+                    
+                    let isConnectivityError = (error as NSError).code == NSURLErrorNotConnectedToInternet
+                        || (error as NSError).code == NSURLErrorNetworkConnectionLost
+
+                    if isConnectivityError && retryCount > 0 {
+                        print("⚠️ Connectivity error, retrying in 2s... (\(retryCount) attempts left)")
+                        DispatchQueue.global().asyncAfter(deadline: .now() + 2.0) {
+                            self.request(sport: sport, parameters: parameters,
+                                          retryCount: retryCount - 1,
+                                          completion: completion)
+                        }
+                    } else {
+                        print("❌ Error: \(error.localizedDescription)")
+                        completion(.failure(error))
+                    }
+                    
                 }
             }
     }
