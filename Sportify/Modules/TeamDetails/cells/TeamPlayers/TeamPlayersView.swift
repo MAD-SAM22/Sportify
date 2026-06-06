@@ -22,7 +22,7 @@ class TeamPlayersView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.text = "Players"
+        titleLabel.text = NSLocalizedString("players_title", comment: "Title for the players section in team details")
         titleLabel.textColor = UIColor(named: "Text_Color") ?? .white
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
         scrollView.showsHorizontalScrollIndicator = false
