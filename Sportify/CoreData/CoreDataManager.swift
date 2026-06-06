@@ -11,13 +11,18 @@ class CoreDataManager {
     
     // 1. Singleton instance so we use the same manager everywhere
     static let shared = CoreDataManager()
-    private init() {}
-    
-    // 2. Helper to access the CoreData Context safely
-    private var context: NSManagedObjectContext {
-        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context: NSManagedObjectContext
+
+    private init() {
+        self.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     }
     
+    
+    // Testing init — accepts injected context
+    init(context: NSManagedObjectContext) {
+        self.context = context
+    }
     // MARK: - CRUD Operations
     
     func saveLeagueToFavorites(league: League, sportName: String) {

@@ -14,7 +14,7 @@ class ReachabilityManager {
     // Alamofire's reachability manager
     private let reachability = NetworkReachabilityManager()
 
-    private init() {}
+    init() {}
 
     // A simple computed property we can check anywhere
     var isConnectedToInternet: Bool {

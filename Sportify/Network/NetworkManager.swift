@@ -9,9 +9,13 @@ import Alamofire
 
 class NetworkManager {
     
+    var session: Session = .default
     static let shared = NetworkManager()
     private init() {}
-    
+    convenience init(session: Session) {
+        self.init()
+        self.session = session
+    }
     // MARK: - Read from Info.plist
     private var baseURL: String {
         guard let url = Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String else {
@@ -42,7 +46,7 @@ class NetworkManager {
         print("🌐 Request URL: \(url)")
         print("📦 Params: \(params)")
         
-        AF.request(url, parameters: params)
+        session.request(url, parameters: params)
             .validate()
             .responseDecodable(of: T.self) { response in
                 
