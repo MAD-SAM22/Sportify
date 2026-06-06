@@ -38,12 +38,27 @@ class SettingsPresenter: SettingsPresenterProtocol {
     }
 
     private func applyLanguage(_ language: AppLanguage) {
-        // Trigger app restart or language change
         UserDefaults.standard.set([language.rawValue], forKey: "AppleLanguages")
-        UserDefaults.standard.synchronize()
+        Bundle.setLanguage(language.rawValue)
 
-        // Notify app to reload UI
-        NotificationCenter.default.post(name: .languageChanged, object: language)
+        guard let windowScene = UIApplication.shared.connectedScenes
+            .first as? UIWindowScene,
+              let window = windowScene.windows.first else { return }
+
+        //change direction 
+        let semanticAttribute: UISemanticContentAttribute = language == .arabic ? .forceRightToLeft : .forceLeftToRight
+            UIView.appearance().semanticContentAttribute = semanticAttribute
+            UINavigationBar.appearance().semanticContentAttribute = semanticAttribute
+            UITabBar.appearance().semanticContentAttribute = semanticAttribute
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+//        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
+
+        UIView.transition(with: window, duration: 0.4, options: .transitionFlipFromLeft) {
+            window.rootViewController = homeVC
+        }
     }
 
     // MARK: - Dark Mode

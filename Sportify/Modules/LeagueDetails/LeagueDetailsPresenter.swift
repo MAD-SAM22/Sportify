@@ -148,12 +148,13 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
     // MARK: - Match State
     func getCurrentMatchState(for index: Int) -> MatchState {
         if selectedTabIndex == 0 {
-            // It's a recent match, so let's extract the score safely
+            guard index >= 0 && index < recentEvents.count else {
+                return .recent(score: "? - ?")
+            }
             let game = recentEvents[index]
             let score = game.eventFinalResult ?? "? - ?"
             return .recent(score: score)
         } else {
-            // It's an upcoming match, no score needed
             return .upcoming
         }
     }

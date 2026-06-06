@@ -253,6 +253,8 @@ class NetworkManager {
     private func formattedDate(offset days: Int) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.calendar = Calendar(identifier: .gregorian)
         let date = Calendar.current.date(
             byAdding: .day,
             value: days,
