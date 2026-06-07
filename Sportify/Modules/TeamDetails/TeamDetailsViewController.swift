@@ -17,7 +17,6 @@ class TeamDetailsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentStackView: UIStackView!
 
-    // MARK: - Properties
     var selectedTeam: Team?
     var sport: String = "soccer"
     var presenter: TeamDetailsPresenterProtocol!
@@ -29,7 +28,7 @@ class TeamDetailsViewController: UIViewController {
     private var playersView: TeamPlayersView!
     private var lineupView: TeamLineupView?
 
-    // MARK: - Lifecycle
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,7 +41,6 @@ class TeamDetailsViewController: UIViewController {
         setupAppNavigationBar(withTitle: "Team Details")
         buildStaticSections()
 
-        // Tell presenter view is ready
         presenter.viewDidLoad()
     }
 

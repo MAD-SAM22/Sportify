@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             // 2. Load and Enforce Saved Dark Mode Preference
             let isDark = UserDefaults.standard.bool(forKey: "app_dark_mode")
-            window.overrideUserInterfaceStyle = isDark ? .dark : .light
+            window.overrideUserInterfaceStyle = !isDark ? .dark : .light
 
             // 3. Load and Enforce Saved Language Semantic Alignment
             if let savedLanguage = UserDefaults.standard.string(forKey: "selected_language") {

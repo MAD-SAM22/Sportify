@@ -87,7 +87,7 @@ class NetworkManager {
             }
     }
     
-    // MARK: - ① Fetch Leagues
+    // MARK: -  Fetch Leagues
     func fetchLeagues(
         for sport: String,
         completion: @escaping (Result<[League], Error>) -> Void
@@ -130,7 +130,7 @@ class NetworkManager {
         }
     }
     
-    // MARK: - ② Fetch Upcoming Events
+    // MARK: -  Fetch Upcoming Events
     func fetchUpcomingEvents(
         leagueId: Int,
         sport: String,
@@ -153,7 +153,7 @@ class NetworkManager {
         }
     }
     
-    // MARK: - ③ Fetch Recent Events
+    // MARK: -  Fetch Recent Events
     func fetchRecentEvents(
         leagueId: Int,
         sport: String,
@@ -181,7 +181,7 @@ class NetworkManager {
         }
     }
     
-    // MARK: - ④ Fetch Teams
+    // MARK: -  Fetch Teams
     func fetchTeams(
         leagueId: Int,
         sport: String,
@@ -202,7 +202,7 @@ class NetworkManager {
         }
     }
     
-    // MARK: - ⑤ Fetch Team Details
+    // MARK: -  Fetch Team Details
     func fetchTeamDetails(
         teamId: Int,
         sport: String,
@@ -227,7 +227,7 @@ class NetworkManager {
         }
     }
     
-    // MARK: - ⑥ Fetch League Details (Teams + Recent + Upcoming in parallel)
+    // MARK: -  Fetch League Details (Teams + Recent + Upcoming in parallel)
     func fetchLeagueDetails(
         leagueId: Int,
         sport: String,

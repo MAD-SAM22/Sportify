@@ -29,8 +29,6 @@ struct APIConstants {
     }
 
     static func endpoint(for sport: String) -> String {
-        // We use lowecased() for English, but Arabic characters don't have casing,
-        // so they will just pass through as-is.
         switch sport.lowercased() {
         case "soccer", "football", "كرة القدم":
             return Sport.football

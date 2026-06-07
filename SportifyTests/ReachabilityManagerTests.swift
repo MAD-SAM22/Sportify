@@ -38,14 +38,11 @@ final class ReachabilityManagerTests: XCTestCase {
     // MARK: - isConnectedToInternet
 
     func test_isConnectedToInternet_returnsBoolean() {
-        // We can't control the real network in unit tests,
-        // but we verify the property exists and returns a valid Bool.
         let result = sut.isConnectedToInternet
         XCTAssertNotNil(result)
     }
 
     func test_isConnectedToInternet_matchesReachabilityState() {
-        // The value must be consistent across two consecutive reads.
         let first = sut.isConnectedToInternet
         let second = sut.isConnectedToInternet
         XCTAssertEqual(first, second)

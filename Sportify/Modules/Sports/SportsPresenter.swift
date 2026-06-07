@@ -23,7 +23,6 @@ class SportsPresenter: SportsPresenterProtocol {
             
             sports = [
                 Sport(
-                    // Using localized strings for the data models
                     sportName: NSLocalizedString("basketball", comment: ""),
                     sportThumb: "basketball_img"
                 ),

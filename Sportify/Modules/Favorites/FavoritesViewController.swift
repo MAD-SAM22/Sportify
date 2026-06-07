@@ -125,11 +125,10 @@ extension FavoritesViewController: UITableViewDataSource {
                 placeholder: UIImage(systemName: "photo.circle.fill"),  // Fallback if offline and uncached
                 options: [
                     .transition(.fade(0.3)),
-                    .cacheOriginalImage,  // Ensures it saves to disk for offline persistence
+                    .cacheOriginalImage,
                 ]
             )
         } else {
-            // Fallback if the URL is completely missing
             cell.leagueImage.image = UIImage(systemName: "photo.circle.fill")
         }
 

@@ -11,17 +11,14 @@ class ReachabilityManager {
 
     static let shared = ReachabilityManager()
 
-    // Alamofire's reachability manager
     private let reachability = NetworkReachabilityManager()
 
     init() {}
 
-    // A simple computed property we can check anywhere
     var isConnectedToInternet: Bool {
         return reachability?.isReachable ?? false
     }
 
-    // Optional: Call this in AppDelegate didFinishLaunchingWithOptions if you want to listen to live changes
     func startMonitoring() {
         reachability?.startListening { status in
             print("Network Status Changed: \(status)")
